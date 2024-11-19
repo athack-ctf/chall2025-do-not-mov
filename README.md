@@ -18,6 +18,12 @@ However, in our case, participants cannot use prime numbers in the binary code t
 The constraint regarding other prime numbers should be less annoying, but can be lifted if needed (89 is prime both in dec, but 0x89 in dec (137) is also prime)).
 Participants have to find other ways to achieve their goal than using regular mov instructions, but it also applies to the values they store in registers etc.
 
+Notes:
+0x89 is mov, 89 is prime, 137 as well (0x89 = 137)
+0x97 is prime both in hex and in dec (151)
+0x83 as well (131)
+
+
 
 ## Category(ies)
 
