@@ -1,0 +1,3435 @@
+Build started at 2024-11-19T16:53:44.679471
+Main binary: /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3
+Build Options: -Ddocs=disabled -Dplugins=true --native-file=config-meson.cross
+Python system: Linux
+The Meson build system
+Version: 1.5.0
+Source dir: /home/hugo/athackctf2025/challenges/prime-disassembly/qemu
+Build dir: /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build
+Build type: native build
+Project name: qemu
+Project version: 9.1.90
+-----------
+Detecting compiler via: `cc -m64 --version` -> 0
+stdout:
+cc (Debian 13.2.0-23) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -m64 -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils for Debian) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13.2.0
+/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccCH2uzg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. --version -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
+-----------
+Sanity testing C compiler: cc -m64
+Is cross compiler: False.
+Sanity check compiler command line: cc -m64 sanitycheckc.c -o sanitycheckc.exe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+C compiler for the host machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the host machine: cc -m64 ld.bfd 2.42
+-----------
+Detecting archiver via: `ar --version` -> 0
+stdout:
+GNU ar (GNU Binutils for Debian) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+-----------
+-----------
+Detecting compiler via: `cc -m64 --version` -> 0
+stdout:
+cc (Debian 13.2.0-23) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+-----------
+Running command: -cpp -x c -E -dM -
+-----
+-----------
+Detecting linker via: `cc -m64 -Wl,--version` -> 0
+stdout:
+GNU ld (GNU Binutils for Debian) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+-----------
+stderr:
+collect2 version 13.2.0
+/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKmQNlN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/13 -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/13/../../.. --version -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
+-----------
+Sanity testing C compiler: cc -m64
+Is cross compiler: False.
+Sanity check compiler command line: cc -m64 sanitycheckc.c -o sanitycheckc.exe -D_FILE_OFFSET_BITS=64
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/sanitycheckc.exe
+C compiler for the build machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the build machine: cc -m64 ld.bfd 2.42
+-----------
+Detecting archiver via: `ar --version` -> 0
+stdout:
+GNU ar (GNU Binutils for Debian) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+-----------
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Program scripts/symlink-install-tree.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/symlink-install-tree.py)
+Program sh found: YES (/usr/bin/sh)
+Program python3 found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3)
+Compiler for language rust skipped: feature rust disabled
+Program iasl found: NO
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxmrgevbi
+Code:
+
+    int main(int argc, char *argv[])
+    {
+      char arr[64], *p = arr, *c = argv[argc - 1];
+      while (*c) {
+          *p++ = *c++;
+      }
+      return 0;
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxmrgevbi/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxmrgevbi/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Werror -fstack-protector-strong` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2an1kps8
+Code:
+
+    int main(int argc, char *argv[])
+    {
+      char arr[64], *p = arr, *c = argv[argc - 1];
+      while (*c) {
+          *p++ = *c++;
+      }
+      return 0;
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2an1kps8/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2an1kps8/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Werror -fstack-protector-strong` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzghll543
+Code:
+
+  #include <ucontext.h>
+  #ifdef __stub_makecontext
+  #error Ignoring glibc stub makecontext which will always fail
+  #endif
+  int main(void) { makecontext(0, 0, 0); return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzghll543/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzghll543/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi9zcedzb
+Code:
+
+  int main(void)
+  {
+  #if defined(__has_feature)
+  #if __has_feature(safe_stack)
+  #error SafeStack Enabled
+  #endif
+  #endif
+      return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi9zcedzb/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi9zcedzb/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpl3g9hsbn
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpl3g9hsbn/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpl3g9hsbn/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,-z,relro` -> 0
+Compiler for C supports link arguments -Wl,-z,relro: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzv879sn3
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzv879sn3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzv879sn3/output.exe -D_FILE_OFFSET_BITS=64 -O0 -Wl,--fatal-warnings -Wl,-z,now` -> 0
+Compiler for C supports link arguments -Wl,-z,now: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk7nqqyk
+Code:
+extern struct { void (*cb)(void); } s; void f(void) { s.cb(); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk7nqqyk/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk7nqqyk/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -O2 -fzero-call-used-regs=used-gpr` -> 0
+Checking if "-fzero-call-used-regs=used-gpr" compiles: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppl0e3h8g
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppl0e3h8g/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppl0e3h8g/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -ftrivial-auto-var-init=zero` -> 0
+Compiler for C supports arguments -ftrivial-auto-var-init=zero: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwc3pxhzr
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwc3pxhzr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwc3pxhzr/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -fzero-call-used-regs=used-gpr` -> 0
+Compiler for C supports arguments -fzero-call-used-regs=used-gpr: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4jm2fj_
+Code:
+
+    struct __attribute__((capability("mutex"))) mutex {};
+    void lock(struct mutex *m) __attribute__((acquire_capability(m)));
+    void unlock(struct mutex *m) __attribute__((release_capability(m)));
+
+    void test(void) {
+      struct mutex __attribute__((cleanup(unlock))) m;
+      lock(&m);
+    }
+  
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4jm2fj_/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4jm2fj_/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Wthread-safety -Werror` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wthread-safety'
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8sskt361
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8sskt361/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8sskt361/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wempty-body` -> 0
+Compiler for C supports arguments -Wempty-body: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcqn7jncw
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcqn7jncw/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcqn7jncw/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wendif-labels` -> 0
+Compiler for C supports arguments -Wendif-labels: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4s9eewkl
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4s9eewkl/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4s9eewkl/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wexpansion-to-defined` -> 0
+Compiler for C supports arguments -Wexpansion-to-defined: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4_iv1gw
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4_iv1gw/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx4_iv1gw/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wformat-security` -> 0
+stderr:
+cc1: warning: '-Wformat-security' ignored without '-Wformat' [-Wformat-security]
+-----------
+Compiler for C supports arguments -Wformat-security: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0gk5_y7
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0gk5_y7/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0gk5_y7/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wformat-y2k` -> 0
+stderr:
+cc1: warning: '-Wformat-y2k' ignored without '-Wformat' [-Wformat-y2k]
+-----------
+Compiler for C supports arguments -Wformat-y2k: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7q8cunm9
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7q8cunm9/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7q8cunm9/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wignored-qualifiers` -> 0
+Compiler for C supports arguments -Wignored-qualifiers: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpchyc_4fo
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpchyc_4fo/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpchyc_4fo/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wimplicit-fallthrough=2` -> 0
+Compiler for C supports arguments -Wimplicit-fallthrough=2: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxv0ww2vh
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxv0ww2vh/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxv0ww2vh/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Winit-self` -> 0
+Compiler for C supports arguments -Winit-self: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoekthb0y
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoekthb0y/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoekthb0y/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-format-attribute` -> 0
+Compiler for C supports arguments -Wmissing-format-attribute: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_6dsp4lq
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_6dsp4lq/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_6dsp4lq/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-prototypes` -> 0
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpona8bfhy
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpona8bfhy/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpona8bfhy/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wnested-externs` -> 0
+Compiler for C supports arguments -Wnested-externs: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyy_nv8xu
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyy_nv8xu/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyy_nv8xu/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wold-style-declaration` -> 0
+Compiler for C supports arguments -Wold-style-declaration: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpweef6vn9
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpweef6vn9/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpweef6vn9/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wold-style-definition` -> 0
+Compiler for C supports arguments -Wold-style-definition: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv_osig0b
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv_osig0b/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv_osig0b/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wredundant-decls` -> 0
+Compiler for C supports arguments -Wredundant-decls: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpatkp_kyr
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpatkp_kyr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpatkp_kyr/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wshadow=local` -> 0
+Compiler for C supports arguments -Wshadow=local: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiqqgbat4
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiqqgbat4/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiqqgbat4/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wstrict-prototypes` -> 0
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqxj2i173
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqxj2i173/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqxj2i173/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wtype-limits` -> 0
+Compiler for C supports arguments -Wtype-limits: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptccbmhm5
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptccbmhm5/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptccbmhm5/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wundef` -> 0
+Compiler for C supports arguments -Wundef: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6de_anbm
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6de_anbm/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6de_anbm/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wvla` -> 0
+Compiler for C supports arguments -Wvla: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_pk_hl6u
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_pk_hl6u/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp_pk_hl6u/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wwrite-strings` -> 0
+Compiler for C supports arguments -Wwrite-strings: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvkzc53l3
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvkzc53l3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvkzc53l3/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wgnu-variable-sized-type-not-at-end -Wno-gnu-variable-sized-type-not-at-end` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wgnu-variable-sized-type-not-at-end'
+-----------
+Compiler for C supports arguments -Wno-gnu-variable-sized-type-not-at-end: NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphnricfss
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphnricfss/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphnricfss/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Winitializer-overrides -Wno-initializer-overrides` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Winitializer-overrides'
+-----------
+Compiler for C supports arguments -Wno-initializer-overrides: NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqz4qsd01
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqz4qsd01/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqz4qsd01/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wmissing-include-dirs -Wno-missing-include-dirs` -> 0
+Compiler for C supports arguments -Wno-missing-include-dirs: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyfu73w_x
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyfu73w_x/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyfu73w_x/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wpsabi -Wno-psabi` -> 0
+Compiler for C supports arguments -Wno-psabi: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl9sj506
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl9sj506/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl9sj506/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wshift-negative-value -Wno-shift-negative-value` -> 0
+Compiler for C supports arguments -Wno-shift-negative-value: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ibkcieo
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ibkcieo/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ibkcieo/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wstring-plus-int -Wno-string-plus-int` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wstring-plus-int'
+-----------
+Compiler for C supports arguments -Wno-string-plus-int: NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp47l9pj2h
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp47l9pj2h/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp47l9pj2h/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wtautological-type-limit-compare -Wno-tautological-type-limit-compare` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wtautological-type-limit-compare'; did you mean '-Wtautological-compare'?
+-----------
+Compiler for C supports arguments -Wno-tautological-type-limit-compare: NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpr2ld90my
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpr2ld90my/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpr2ld90my/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wtypedef-redefinition -Wno-typedef-redefinition` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wtypedef-redefinition'
+-----------
+Compiler for C supports arguments -Wno-typedef-redefinition: NO 
+Program cgcc found: NO
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcom5qgfd
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcom5qgfd/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcom5qgfd/output.exe -D_FILE_OFFSET_BITS=64 -O0 -lm -Wl,--allow-shlib-undefined` -> 0
+Library m found: YES
+Run-time dependency threads found: YES
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0uznz9t
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0uznz9t/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0uznz9t/output.exe -D_FILE_OFFSET_BITS=64 -O0 -lutil -Wl,--allow-shlib-undefined` -> 0
+Library util found: YES
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwf12c3b4
+Code:
+int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwf12c3b4/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwf12c3b4/output.exe -D_FILE_OFFSET_BITS=64 -O0 -framework Hypervisor` -> 1
+stderr:
+cc: error: unrecognized command-line option '-framework'
+-----------
+Run-time dependency appleframeworks found: NO (tried framework)
+Pkg-config binary for host machine specified from cross file, native file, or env var as ['pkg-config']
+Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+Determining dependency 'glib-2.0' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion glib-2.0` -> 0
+stdout:
+2.82.2
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --cflags glib-2.0` -> 0
+stdout:
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/sysprof-6 -pthread
+-----------
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs glib-2.0` -> 0
+stdout:
+-L/usr/lib/x86_64-linux-gnu -lglib-2.0
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs glib-2.0` -> 0
+stdout:
+-lglib-2.0
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwlg7jf41
+Code:
+
+        #include<stddef.h>
+        #include<stdio.h>
+        int main(void) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwlg7jf41/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwlg7jf41/output.exe -D_FILE_OFFSET_BITS=64 -O0` -> 0
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4jbwqmmz
+Code:
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4jbwqmmz/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4jbwqmmz/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs` -> 0
+stdout:
+install: /usr/lib/gcc/x86_64-linux-gnu/13/
+programs: =/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/13/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/13/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/
+-----------
+Run-time dependency glib-2.0 found: YES 2.82.2
+Determining dependency 'gmodule-no-export-2.0' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion gmodule-no-export-2.0` -> 0
+stdout:
+2.82.2
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --cflags gmodule-no-export-2.0` -> 0
+stdout:
+-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/sysprof-6 -pthread
+-----------
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs gmodule-no-export-2.0` -> 0
+stdout:
+-L/usr/lib/x86_64-linux-gnu -lgmodule-2.0 -pthread -lglib-2.0
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs gmodule-no-export-2.0` -> 0
+stdout:
+-lgmodule-2.0 -pthread -lglib-2.0
+-----------
+Run-time dependency gmodule-no-export-2.0 found: YES 2.82.2
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4tt0qmps
+Code:
+
+  #include <glib.h>
+  #include <unistd.h>
+
+  #define QEMU_BUILD_BUG_ON(x) \
+  typedef char qemu_build_bug_on[(x)?-1:1] __attribute__((unused));
+
+  int main(void) {
+     QEMU_BUILD_BUG_ON(sizeof(size_t) != GLIB_SIZEOF_SIZE_T);
+     return 0;
+  }
+-----------
+Command line: `cc -m64 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/sysprof-6 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4tt0qmps/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4tt0qmps/output.obj -c -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Program scripts/xml-preprocess.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/xml-preprocess.py)
+Determining dependency 'zlib' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion zlib` -> 0
+stdout:
+1.3.1
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --cflags zlib` -> 0
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs zlib` -> 0
+stdout:
+-L/usr/lib/x86_64-linux-gnu -lz
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs zlib` -> 0
+stdout:
+-lz
+-----------
+Run-time dependency zlib found: YES 1.3.1
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpbeb37xyt
+Code:
+
+  #include <stddef.h>
+  #include <sys/types.h>
+  #ifdef CONFIG_LIBATTR
+  #include <attr/xattr.h>
+  #else
+  #include <sys/xattr.h>
+  #endif
+  int main(void) { getxattr(NULL, NULL, NULL, 0); setxattr(NULL, NULL, NULL, 0, 0); return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpbeb37xyt/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpbeb37xyt/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphdddzz07
+Code:
+int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphdddzz07/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphdddzz07/output.exe -D_FILE_OFFSET_BITS=64 -O0 -framework Cocoa` -> 1
+stderr:
+cc: error: unrecognized command-line option '-framework'
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyuzpyqpq
+Code:
+int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyuzpyqpq/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpyuzpyqpq/output.exe -D_FILE_OFFSET_BITS=64 -O0 -framework CoreVideo` -> 1
+stderr:
+cc: error: unrecognized command-line option '-framework'
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6jsrztir
+Code:
+int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6jsrztir/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6jsrztir/output.exe -D_FILE_OFFSET_BITS=64 -O0 -framework QuartzCore` -> 1
+stderr:
+cc: error: unrecognized command-line option '-framework'
+-----------
+Run-time dependency appleframeworks found: NO (tried framework)
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo3gqcgll
+Code:
+int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo3gqcgll/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo3gqcgll/output.exe -D_FILE_OFFSET_BITS=64 -O0 -framework vmnet` -> 1
+stderr:
+cc: error: unrecognized command-line option '-framework'
+-----------
+Run-time dependency appleframeworks found: NO (tried framework)
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjt3eo4k4
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjt3eo4k4/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjt3eo4k4/output.exe -D_FILE_OFFSET_BITS=64 -O0 -lrt -Wl,--allow-shlib-undefined` -> 0
+Library rt found: YES
+Determining dependency 'capstone' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion capstone` -> 1
+stderr:
+Package capstone was not found in the pkg-config search path.
+Perhaps you should add the directory containing `capstone.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'capstone', required by 'virtual:world', not found
+-----------
+Run-time dependency capstone found: NO (tried pkgconfig)
+Determining dependency 'gmp' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion gmp` -> 1
+stderr:
+Package gmp was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gmp.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'gmp', required by 'virtual:world', not found
+-----------
+Run-time dependency gmp found: NO (tried pkgconfig)
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfehi3ri6
+Code:
+
+        #define gettid meson_disable_define_of_gettid
+        
+        #include <limits.h>
+        #undef gettid
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char gettid (void);
+        
+        #if defined __stub_gettid || defined __stub___gettid
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return gettid ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfehi3ri6/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfehi3ri6/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "gettid" : YES 
+Determining dependency 'libselinux' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion libselinux` -> 0
+stdout:
+3.7
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --cflags libselinux` -> 0
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs libselinux` -> 0
+stdout:
+-L/usr/lib -lselinux
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs libselinux` -> 0
+stdout:
+-lselinux
+-----------
+Run-time dependency libselinux found: YES 3.7
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9ipfzybr
+Code:
+#include <malloc.h>
+#include <limits.h>
+
+        #if defined __stub_malloc_trim || defined __stub___malloc_trim
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &malloc_trim;
+            long long b = (long long) a;
+            return (int) b;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9ipfzybr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9ipfzybr/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "malloc_trim" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpu2isz9zn
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+        #include <sys/stat.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef STATX_BASIC_STATS
+                STATX_BASIC_STATS;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpu2isz9zn/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpu2isz9zn/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/stat.h" has symbol "STATX_BASIC_STATS" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm_aagqqn
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+        #include <sys/stat.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef STATX_MNT_ID
+                STATX_MNT_ID;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm_aagqqn/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm_aagqqn/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/stat.h" has symbol "STATX_MNT_ID" : YES 
+Determining dependency 'fuse3' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion fuse3` -> 1
+stderr:
+Package fuse3 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `fuse3.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'fuse3', required by 'virtual:world', not found
+-----------
+Run-time dependency fuse3 found: NO (tried pkgconfig)
+Determining dependency 'libbpf' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion libbpf` -> 1
+stderr:
+Package libbpf was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libbpf.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libbpf', required by 'virtual:world', not found
+-----------
+Run-time dependency libbpf found: NO (tried pkgconfig)
+Determining dependency 'libdw' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion libdw` -> 1
+stderr:
+Package libdw was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libdw.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libdw', required by 'virtual:world', not found
+-----------
+Run-time dependency libdw found: NO (tried pkgconfig)
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ju4evcr
+Code:
+
+        #include <linux/fs.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FIFREEZE
+                FIFREEZE;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ju4evcr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ju4evcr/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/fs.h" has symbol "FIFREEZE" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgmcqy3m8
+Code:
+
+        #include <linux/fs.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FITRIM
+                FITRIM;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgmcqy3m8/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgmcqy3m8/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/fs.h" has symbol "FITRIM" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzmi3odaw
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("sys/epoll.h")
+          #error "Header 'sys/epoll.h' could not be found"
+         #endif
+        #else
+         #include <sys/epoll.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzmi3odaw/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "sys/epoll.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqrofhygm
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("linux/magic.h")
+          #error "Header 'linux/magic.h' could not be found"
+         #endif
+        #else
+         #include <linux/magic.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqrofhygm/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "linux/magic.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpk7qxkjnx
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("valgrind/valgrind.h")
+          #error "Header 'valgrind/valgrind.h' could not be found"
+         #endif
+        #else
+         #include <valgrind/valgrind.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpk7qxkjnx/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpk7qxkjnx/testfile.c:4:12: error: #error "Header 'valgrind/valgrind.h' could not be found"
+    4 |           #error "Header 'valgrind/valgrind.h' could not be found"
+      |            ^~~~~
+-----------
+Has header "valgrind/valgrind.h" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwx529hq6
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("linux/btrfs.h")
+          #error "Header 'linux/btrfs.h' could not be found"
+         #endif
+        #else
+         #include <linux/btrfs.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwx529hq6/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "linux/btrfs.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpek_gr_zn
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("libdrm/drm.h")
+          #error "Header 'libdrm/drm.h' could not be found"
+         #endif
+        #else
+         #include <libdrm/drm.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpek_gr_zn/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpek_gr_zn/testfile.c:4:12: error: #error "Header 'libdrm/drm.h' could not be found"
+    4 |           #error "Header 'libdrm/drm.h' could not be found"
+      |            ^~~~~
+-----------
+Has header "libdrm/drm.h" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp1kjit48c
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("linux/openat2.h")
+          #error "Header 'linux/openat2.h' could not be found"
+         #endif
+        #else
+         #include <linux/openat2.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp1kjit48c/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "linux/openat2.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoynr437f
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("pty.h")
+          #error "Header 'pty.h' could not be found"
+         #endif
+        #else
+         #include <pty.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoynr437f/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "pty.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4u1k36e0
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("sys/disk.h")
+          #error "Header 'sys/disk.h' could not be found"
+         #endif
+        #else
+         #include <sys/disk.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4u1k36e0/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4u1k36e0/testfile.c:4:12: error: #error "Header 'sys/disk.h' could not be found"
+    4 |           #error "Header 'sys/disk.h' could not be found"
+      |            ^~~~~
+-----------
+Has header "sys/disk.h" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7jzyhh76
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("sys/ioccom.h")
+          #error "Header 'sys/ioccom.h' could not be found"
+         #endif
+        #else
+         #include <sys/ioccom.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7jzyhh76/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7jzyhh76/testfile.c:4:12: error: #error "Header 'sys/ioccom.h' could not be found"
+    4 |           #error "Header 'sys/ioccom.h' could not be found"
+      |            ^~~~~
+-----------
+Has header "sys/ioccom.h" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwagb3loe
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("sys/kcov.h")
+          #error "Header 'sys/kcov.h' could not be found"
+         #endif
+        #else
+         #include <sys/kcov.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwagb3loe/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpwagb3loe/testfile.c:4:12: error: #error "Header 'sys/kcov.h' could not be found"
+    4 |           #error "Header 'sys/kcov.h' could not be found"
+      |            ^~~~~
+-----------
+Has header "sys/kcov.h" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpdfw05mt6
+Code:
+
+        #define close_range meson_disable_define_of_close_range
+        
+        #include <limits.h>
+        #undef close_range
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char close_range (void);
+        
+        #if defined __stub_close_range || defined __stub___close_range
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return close_range ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpdfw05mt6/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpdfw05mt6/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "close_range" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnpu4170f
+Code:
+
+        #define accept4 meson_disable_define_of_accept4
+        
+        #include <limits.h>
+        #undef accept4
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char accept4 (void);
+        
+        #if defined __stub_accept4 || defined __stub___accept4
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return accept4 ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnpu4170f/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnpu4170f/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "accept4" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuss1psro
+Code:
+
+        #define clock_adjtime meson_disable_define_of_clock_adjtime
+        
+        #include <limits.h>
+        #undef clock_adjtime
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char clock_adjtime (void);
+        
+        #if defined __stub_clock_adjtime || defined __stub___clock_adjtime
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return clock_adjtime ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuss1psro/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuss1psro/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "clock_adjtime" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpisq4aphx
+Code:
+
+        #define dup3 meson_disable_define_of_dup3
+        
+        #include <limits.h>
+        #undef dup3
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char dup3 (void);
+        
+        #if defined __stub_dup3 || defined __stub___dup3
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return dup3 ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpisq4aphx/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpisq4aphx/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "dup3" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp3gp92a34
+Code:
+
+        #define fallocate meson_disable_define_of_fallocate
+        
+        #include <limits.h>
+        #undef fallocate
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char fallocate (void);
+        
+        #if defined __stub_fallocate || defined __stub___fallocate
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return fallocate ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp3gp92a34/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp3gp92a34/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "fallocate" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn3ek_wog
+Code:
+
+        #define posix_fallocate meson_disable_define_of_posix_fallocate
+        
+        #include <limits.h>
+        #undef posix_fallocate
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char posix_fallocate (void);
+        
+        #if defined __stub_posix_fallocate || defined __stub___posix_fallocate
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return posix_fallocate ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn3ek_wog/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn3ek_wog/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "posix_fallocate" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoi3_che0
+Code:
+
+        #define getcpu meson_disable_define_of_getcpu
+        
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+        #include <limits.h>
+        #undef getcpu
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char getcpu (void);
+        
+        #if defined __stub_getcpu || defined __stub___getcpu
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return getcpu ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoi3_che0/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoi3_che0/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "getcpu" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_
+Code:
+#include <sched.h>
+#include <limits.h>
+
+        #if defined __stub_sched_getcpu || defined __stub___sched_getcpu
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &sched_getcpu;
+            long long b = (long long) a;
+            return (int) b;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_/testfile.c:9:32: error: 'sched_getcpu' undeclared (first use in this function); did you mean 'sched_getparam'?
+    9 |             void *a = (void*) &sched_getcpu;
+      |                                ^~~~~~~~~~~~
+      |                                sched_getparam
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpsanfuci_/testfile.c:9:32: note: each undeclared identifier is reported only once for each function it appears in
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i
+Code:
+#include <sched.h>
+        int main(void) {
+
+        /* With some toolchains (MSYS2/mingw for example) the compiler
+         * provides various builtins which are not really implemented and
+         * fall back to the stdlib where they aren't provided and fail at
+         * build/link time. In case the user provides a header, including
+         * the header didn't lead to the function being defined, and the
+         * function we are checking isn't a builtin itself we assume the
+         * builtin is not functional and we just error out. */
+        #if !0 && !defined(sched_getcpu) && !0
+            #error "No definition for __builtin_sched_getcpu found in the prefix"
+        #endif
+
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_sched_getcpu)
+                #error "__builtin_sched_getcpu not found"
+            #endif
+        #elif ! defined(sched_getcpu)
+            __builtin_sched_getcpu;
+        #endif
+        return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i/testfile.c:12:14: error: #error "No definition for __builtin_sched_getcpu found in the prefix"
+   12 |             #error "No definition for __builtin_sched_getcpu found in the prefix"
+      |              ^~~~~
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiffejl1i/testfile.c:17:18: error: #error "__builtin_sched_getcpu not found"
+   17 |                 #error "__builtin_sched_getcpu not found"
+      |                  ^~~~~
+-----------
+Checking for function "sched_getcpu" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpt9c93s37
+Code:
+#include <stdlib.h>
+#include <limits.h>
+
+        #if defined __stub_posix_memalign || defined __stub___posix_memalign
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &posix_memalign;
+            long long b = (long long) a;
+            return (int) b;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpt9c93s37/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpt9c93s37/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "posix_memalign" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9dxup9r3
+Code:
+
+        #define _aligned_malloc meson_disable_define_of__aligned_malloc
+        
+        #include <limits.h>
+        #undef _aligned_malloc
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char _aligned_malloc (void);
+        
+        #if defined __stub__aligned_malloc || defined __stub____aligned_malloc
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return _aligned_malloc ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9dxup9r3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9dxup9r3/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/usr/bin/ld: /tmp/ccsnbKAI.o: in function `main':
+testfile.c:(.text+0x5): undefined reference to `_aligned_malloc'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn9j87up9
+Code:
+
+        int main(void) {
+
+        /* With some toolchains (MSYS2/mingw for example) the compiler
+         * provides various builtins which are not really implemented and
+         * fall back to the stdlib where they aren't provided and fail at
+         * build/link time. In case the user provides a header, including
+         * the header didn't lead to the function being defined, and the
+         * function we are checking isn't a builtin itself we assume the
+         * builtin is not functional and we just error out. */
+        #if !1 && !defined(_aligned_malloc) && !0
+            #error "No definition for __builtin__aligned_malloc found in the prefix"
+        #endif
+
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin__aligned_malloc)
+                #error "__builtin__aligned_malloc not found"
+            #endif
+        #elif ! defined(_aligned_malloc)
+            __builtin__aligned_malloc;
+        #endif
+        return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn9j87up9/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn9j87up9/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn9j87up9/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpn9j87up9/testfile.c:17:18: error: #error "__builtin__aligned_malloc not found"
+   17 |                 #error "__builtin__aligned_malloc not found"
+      |                  ^~~~~
+-----------
+Checking for function "_aligned_malloc" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpojhzaxhu
+Code:
+
+        #define valloc meson_disable_define_of_valloc
+        
+        #include <limits.h>
+        #undef valloc
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char valloc (void);
+        
+        #if defined __stub_valloc || defined __stub___valloc
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return valloc ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpojhzaxhu/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpojhzaxhu/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "valloc" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpupqtyujp
+Code:
+
+        #define memalign meson_disable_define_of_memalign
+        
+        #include <limits.h>
+        #undef memalign
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char memalign (void);
+        
+        #if defined __stub_memalign || defined __stub___memalign
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return memalign ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpupqtyujp/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpupqtyujp/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "memalign" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8byfrxzw
+Code:
+
+        #define ppoll meson_disable_define_of_ppoll
+        
+        #include <limits.h>
+        #undef ppoll
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char ppoll (void);
+        
+        #if defined __stub_ppoll || defined __stub___ppoll
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return ppoll ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8byfrxzw/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8byfrxzw/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "ppoll" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4ucga0zg
+Code:
+#include <sys/uio.h>
+#include <limits.h>
+
+        #if defined __stub_preadv || defined __stub___preadv
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &preadv;
+            long long b = (long long) a;
+            return (int) b;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4ucga0zg/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4ucga0zg/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "preadv" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa3dzzwyc
+Code:
+
+        #define pthread_fchdir_np meson_disable_define_of_pthread_fchdir_np
+        
+        #include <limits.h>
+        #undef pthread_fchdir_np
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char pthread_fchdir_np (void);
+        
+        #if defined __stub_pthread_fchdir_np || defined __stub___pthread_fchdir_np
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return pthread_fchdir_np ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa3dzzwyc/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa3dzzwyc/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/usr/bin/ld: /tmp/cc0zHdHn.o: in function `main':
+testfile.c:(.text+0x5): undefined reference to `pthread_fchdir_np'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoxy2169h
+Code:
+
+        int main(void) {
+
+        /* With some toolchains (MSYS2/mingw for example) the compiler
+         * provides various builtins which are not really implemented and
+         * fall back to the stdlib where they aren't provided and fail at
+         * build/link time. In case the user provides a header, including
+         * the header didn't lead to the function being defined, and the
+         * function we are checking isn't a builtin itself we assume the
+         * builtin is not functional and we just error out. */
+        #if !1 && !defined(pthread_fchdir_np) && !0
+            #error "No definition for __builtin_pthread_fchdir_np found in the prefix"
+        #endif
+
+        #ifdef __has_builtin
+            #if !__has_builtin(__builtin_pthread_fchdir_np)
+                #error "__builtin_pthread_fchdir_np not found"
+            #endif
+        #elif ! defined(pthread_fchdir_np)
+            __builtin_pthread_fchdir_np;
+        #endif
+        return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoxy2169h/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoxy2169h/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoxy2169h/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpoxy2169h/testfile.c:17:18: error: #error "__builtin_pthread_fchdir_np not found"
+   17 |                 #error "__builtin_pthread_fchdir_np not found"
+      |                  ^~~~~
+-----------
+Checking for function "pthread_fchdir_np" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd5_pyod_
+Code:
+
+        #define sendfile meson_disable_define_of_sendfile
+        
+        #include <limits.h>
+        #undef sendfile
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char sendfile (void);
+        
+        #if defined __stub_sendfile || defined __stub___sendfile
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return sendfile ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd5_pyod_/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd5_pyod_/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "sendfile" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa55e9l7k
+Code:
+
+        #define setns meson_disable_define_of_setns
+        
+        #include <limits.h>
+        #undef setns
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char setns (void);
+        
+        #if defined __stub_setns || defined __stub___setns
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return setns ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa55e9l7k/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpa55e9l7k/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "setns" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4kksbodl
+Code:
+
+        #define unshare meson_disable_define_of_unshare
+        
+        #include <limits.h>
+        #undef unshare
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char unshare (void);
+        
+        #if defined __stub_unshare || defined __stub___unshare
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return unshare ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4kksbodl/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp4kksbodl/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "unshare" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp__dalalc
+Code:
+
+        #define syncfs meson_disable_define_of_syncfs
+        
+        #include <limits.h>
+        #undef syncfs
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char syncfs (void);
+        
+        #if defined __stub_syncfs || defined __stub___syncfs
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return syncfs ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp__dalalc/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp__dalalc/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "syncfs" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvmr84r37
+Code:
+
+        #define sync_file_range meson_disable_define_of_sync_file_range
+        
+        #include <limits.h>
+        #undef sync_file_range
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char sync_file_range (void);
+        
+        #if defined __stub_sync_file_range || defined __stub___sync_file_range
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return sync_file_range ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvmr84r37/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvmr84r37/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "sync_file_range" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmriy0ibk
+Code:
+
+        #define timerfd_create meson_disable_define_of_timerfd_create
+        
+        #include <limits.h>
+        #undef timerfd_create
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char timerfd_create (void);
+        
+        #if defined __stub_timerfd_create || defined __stub___timerfd_create
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return timerfd_create ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmriy0ibk/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmriy0ibk/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "timerfd_create" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpodth4v0n
+Code:
+
+        #define copy_file_range meson_disable_define_of_copy_file_range
+        
+        #include <limits.h>
+        #undef copy_file_range
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char copy_file_range (void);
+        
+        #if defined __stub_copy_file_range || defined __stub___copy_file_range
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return copy_file_range ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpodth4v0n/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpodth4v0n/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "copy_file_range" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphwd__b5w
+Code:
+
+        #define getifaddrs meson_disable_define_of_getifaddrs
+        
+        #include <limits.h>
+        #undef getifaddrs
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char getifaddrs (void);
+        
+        #if defined __stub_getifaddrs || defined __stub___getifaddrs
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return getifaddrs ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphwd__b5w/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphwd__b5w/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "getifaddrs" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7xe5yobf
+Code:
+
+        #define openpty meson_disable_define_of_openpty
+        
+        #include <limits.h>
+        #undef openpty
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char openpty (void);
+        
+        #if defined __stub_openpty || defined __stub___openpty
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return openpty ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7xe5yobf/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp7xe5yobf/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -lutil` -> 0
+Checking for function "openpty" with dependency -lutil: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfr8h8cq3
+Code:
+
+        #define strchrnul meson_disable_define_of_strchrnul
+        
+        #include <limits.h>
+        #undef strchrnul
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char strchrnul (void);
+        
+        #if defined __stub_strchrnul || defined __stub___strchrnul
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return strchrnul ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfr8h8cq3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpfr8h8cq3/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "strchrnul" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj59hg0cl
+Code:
+#include <stdlib.h>
+#include <limits.h>
+
+        #if defined __stub_system || defined __stub___system
+        fail fail fail this function is not going to work
+        #endif
+        
+int main(void) {
+            void *a = (void*) &system;
+            long long b = (long long) a;
+            return (int) b;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj59hg0cl/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj59hg0cl/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "system" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk6g7_xy
+Code:
+
+        #include <sys/inotify.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef inotify_init
+                inotify_init;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk6g7_xy/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnk6g7_xy/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/inotify.h" has symbol "inotify_init" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi3nqcg9q
+Code:
+
+        #include <sys/inotify.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef inotify_init1
+                inotify_init1;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi3nqcg9q/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpi3nqcg9q/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/inotify.h" has symbol "inotify_init1" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpz0o1am0l
+Code:
+
+        #include <linux/blkzoned.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef BLKOPENZONE
+                BLKOPENZONE;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpz0o1am0l/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpz0o1am0l/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/blkzoned.h" has symbol "BLKOPENZONE" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp1f4zcbxz
+Code:
+
+        #include <sys/epoll.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef epoll_create1
+                epoll_create1;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp1f4zcbxz/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp1f4zcbxz/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/epoll.h" has symbol "epoll_create1" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl2m455w
+Code:
+
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_PUNCH_HOLE
+                FALLOC_FL_PUNCH_HOLE;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl2m455w/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphl2m455w/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/falloc.h" has symbol "FALLOC_FL_PUNCH_HOLE" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxkenciv4
+Code:
+
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_KEEP_SIZE
+                FALLOC_FL_KEEP_SIZE;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxkenciv4/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpxkenciv4/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/falloc.h" has symbol "FALLOC_FL_KEEP_SIZE" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmplxpj2u7p
+Code:
+
+        #include <linux/falloc.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FALLOC_FL_ZERO_RANGE
+                FALLOC_FL_ZERO_RANGE;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmplxpj2u7p/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmplxpj2u7p/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/falloc.h" has symbol "FALLOC_FL_ZERO_RANGE" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd18094qa
+Code:
+
+        #ifdef __has_include
+         #if !__has_include("linux/fiemap.h")
+          #error "Header 'linux/fiemap.h' could not be found"
+         #endif
+        #else
+         #include <linux/fiemap.h>
+        #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd18094qa/testfile.c -E -P -D_FILE_OFFSET_BITS=64 -P -O0 -std=gnu11` -> 0
+Has header "linux/fiemap.h" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphjn2im40
+Code:
+
+        #include <linux/fs.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef FS_IOC_FIEMAP
+                FS_IOC_FIEMAP;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphjn2im40/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmphjn2im40/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/fs.h" has symbol "FS_IOC_FIEMAP" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppdhbjfff
+Code:
+
+        #define getrandom meson_disable_define_of_getrandom
+        
+        #include <limits.h>
+        #undef getrandom
+        
+        #ifdef __cplusplus
+        extern "C"
+        #endif
+        char getrandom (void);
+        
+        #if defined __stub_getrandom || defined __stub___getrandom
+        fail fail fail this function is not going to work
+        #endif
+        
+        int main(void) {
+          return getrandom ();
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppdhbjfff/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppdhbjfff/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for function "getrandom" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpumvek5z5
+Code:
+
+        #include <sys/random.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef GRND_NONBLOCK
+                GRND_NONBLOCK;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpumvek5z5/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpumvek5z5/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/random.h" has symbol "GRND_NONBLOCK" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpewrvgjlv
+Code:
+
+        #include <sys/prctl.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef PR_SET_TIMERSLACK
+                PR_SET_TIMERSLACK;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpewrvgjlv/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpewrvgjlv/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/prctl.h" has symbol "PR_SET_TIMERSLACK" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpw7a52oqm
+Code:
+
+        #include <linux/rtnetlink.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef IFLA_PROTO_DOWN
+                IFLA_PROTO_DOWN;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpw7a52oqm/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpw7a52oqm/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/rtnetlink.h" has symbol "IFLA_PROTO_DOWN" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzmulwg4q
+Code:
+
+        #include <sys/sysmacros.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef makedev
+                makedev;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzmulwg4q/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpzmulwg4q/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "sys/sysmacros.h" has symbol "makedev" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i
+Code:
+
+        #include <getopt.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef optreset
+                optreset;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i/testfile.c:6:17: error: 'optreset' undeclared (first use in this function)
+    6 |                 optreset;
+      |                 ^~~~~~~~
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp5yx3cx_i/testfile.c:6:17: note: each undeclared identifier is reported only once for each function it appears in
+-----------
+Header "getopt.h" has symbol "optreset" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2ucn_kw9
+Code:
+
+        #include <netinet/in.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef IPPROTO_MPTCP
+                IPPROTO_MPTCP;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2ucn_kw9/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp2ucn_kw9/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "netinet/in.h" has symbol "IPPROTO_MPTCP" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpds599zsp
+Code:
+#include <signal.h>
+        void bar(void) {
+            struct sigevent foo;
+            foo.sigev_notify_thread_id;
+
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpds599zsp/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpds599zsp/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpds599zsp/testfile.c: In function 'bar':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpds599zsp/testfile.c:4:16: error: 'struct sigevent' has no member named 'sigev_notify_thread_id'
+    4 |             foo.sigev_notify_thread_id;
+      |                ^
+-----------
+Checking whether type "struct sigevent" has member "sigev_notify_thread_id" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp36qd36c8
+Code:
+#include <sys/stat.h>
+        void bar(void) {
+            struct stat foo;
+            foo.st_atim;
+
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp36qd36c8/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp36qd36c8/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking whether type "struct stat" has member "st_atim" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjhmu_v49
+Code:
+#include <linux/blkzoned.h>
+        void bar(void) {
+            struct blk_zone foo;
+            foo.capacity;
+
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjhmu_v49/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjhmu_v49/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking whether type "struct blk_zone" has member "capacity" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcm65_j9p
+Code:
+#include <sys/uio.h>
+        void bar(void) {
+            sizeof(struct iovec);
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcm65_j9p/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpcm65_j9p/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for type "struct iovec" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpanrneev3
+Code:
+#include <utmpx.h>
+        void bar(void) {
+            sizeof(struct utmpx);
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpanrneev3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpanrneev3/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Checking for type "struct utmpx" : YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo64l7k1w
+Code:
+
+  #include <sys/eventfd.h>
+  int main(void) { return eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo64l7k1w/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo64l7k1w/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjnxa7tkj
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <unistd.h>
+  int main(void) {
+  #if defined(_POSIX_SYNCHRONIZED_IO) && _POSIX_SYNCHRONIZED_IO > 0
+  return fdatasync(0);
+  #else
+  #error Not supported
+  #endif
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjnxa7tkj/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjnxa7tkj/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp317nsqkd
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/types.h>
+  #include <sys/mman.h>
+  #include <stddef.h>
+  int main(void) { return madvise(NULL, 0, MADV_DONTNEED); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp317nsqkd/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp317nsqkd/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpicm_ghjt
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+    #include <sys/types.h>
+    #include <sys/mman.h>
+    #include <stddef.h>
+    extern int madvise(int);
+    int main(void) { return madvise(0); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpicm_ghjt/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpicm_ghjt/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpicm_ghjt/testfile.c:9:16: error: conflicting types for 'madvise'; have 'int(int)'
+    9 |     extern int madvise(int);
+      |                ^~~~~~~
+In file included from /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpicm_ghjt/testfile.c:7:
+/usr/include/x86_64-linux-gnu/sys/mman.h:94:12: note: previous declaration of 'madvise' with type 'int(void *, size_t,  int)' {aka 'int(void *, long unsigned int,  int)'}
+   94 | extern int madvise (void *__addr, size_t __len, int __advice) __THROW;
+      |            ^~~~~~~
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpks59if04
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/mman.h>
+  int main(void) { return memfd_create("foo", MFD_ALLOW_SEALING); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpks59if04/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpks59if04/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc3tw6jur
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <fcntl.h>
+  #if !defined(AT_EMPTY_PATH)
+  # error missing definition
+  #else
+  int main(void) { struct file_handle fh; return open_by_handle_at(0, &fh, 0); }
+  #endif
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc3tw6jur/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc3tw6jur/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc2sfickd
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+    #include <sys/mman.h>
+    #include <stddef.h>
+    int main(void) { return posix_madvise(NULL, 0, POSIX_MADV_DONTNEED); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc2sfickd/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpc2sfickd/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp26q6t9mg
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <pthread.h>
+
+  static void *f(void *p) { return NULL; }
+  int main(void)
+  {
+    pthread_t thread;
+    pthread_create(&thread, 0, f, 0);
+    pthread_setname_np(thread, "QEMU");
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp26q6t9mg/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp26q6t9mg/output.exe -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <pthread.h>
+
+  static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
+  int main(void)
+  {
+    pthread_t thread;
+    pthread_create(&thread, 0, f, 0);
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/output.exe -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/testfile.c: In function 'f':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/testfile.c:8:48: warning: passing argument 1 of 'pthread_setname_np' makes integer from pointer without a cast [-Wint-conversion]
+    8 |   static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
+      |                                                ^~~~~~
+      |                                                |
+      |                                                char *
+In file included from /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/testfile.c:6:
+/usr/include/pthread.h:463:42: note: expected 'pthread_t' {aka 'long unsigned int'} but argument is of type 'char *'
+  463 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpuf9r3kww/testfile.c:8:29: error: too few arguments to function 'pthread_setname_np'
+    8 |   static void *f(void *p) { pthread_setname_np("QEMU"); return NULL; }
+      |                             ^~~~~~~~~~~~~~~~~~
+/usr/include/pthread.h:463:12: note: declared here
+  463 | extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+      |            ^~~~~~~~~~~~~~~~~~
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8fmdcrlx
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <pthread.h>
+  #include <pthread_np.h>
+
+  static void *f(void *p) { return NULL; }
+  int main(void)
+  {
+    pthread_t thread;
+    pthread_create(&thread, 0, f, 0);
+    pthread_set_name_np(thread, "QEMU");
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8fmdcrlx/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8fmdcrlx/output.exe -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp8fmdcrlx/testfile.c:7:12: fatal error: pthread_np.h: No such file or directory
+    7 |   #include <pthread_np.h>
+      |            ^~~~~~~~~~~~~~
+compilation terminated.
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <pthread.h>
+  #include <time.h>
+
+  int main(void)
+  {
+    pthread_condattr_t attr
+    pthread_condattr_init(&attr);
+    pthread_condattr_setclock(&attr, CLOCK_MONOTONIC);
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/output.exe -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/testfile.c:12:5: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'pthread_condattr_init'
+   12 |     pthread_condattr_init(&attr);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/testfile.c:12:28: error: 'attr' undeclared (first use in this function)
+   12 |     pthread_condattr_init(&attr);
+      |                            ^~~~
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpqmkmyeyi/testfile.c:12:28: note: each undeclared identifier is reported only once for each function it appears in
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd0gvzjyu
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <pthread.h>
+
+  static void *f(void *p) { return NULL; }
+  int main(void)
+  {
+    int setsize = CPU_ALLOC_SIZE(64);
+    pthread_t thread;
+    cpu_set_t *cpuset;
+    pthread_create(&thread, 0, f, 0);
+    cpuset = CPU_ALLOC(64);
+    CPU_ZERO_S(setsize, cpuset);
+    pthread_setaffinity_np(thread, setsize, cpuset);
+    pthread_getaffinity_np(thread, setsize, cpuset);
+    CPU_FREE(cpuset);
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd0gvzjyu/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpd0gvzjyu/output.exe -pthread -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmt1m5mpg
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/signalfd.h>
+  #include <stddef.h>
+  int main(void) { return signalfd(-1, NULL, SFD_CLOEXEC); }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmt1m5mpg/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpmt1m5mpg/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptwkb_med
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <unistd.h>
+  #include <fcntl.h>
+  #include <limits.h>
+
+  int main(void)
+  {
+    int len, fd = 0;
+    len = tee(STDIN_FILENO, STDOUT_FILENO, INT_MAX, SPLICE_F_NONBLOCK);
+    splice(STDIN_FILENO, NULL, fd, NULL, len, SPLICE_F_MOVE);
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptwkb_med/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmptwkb_med/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0y_vkvcd
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/mman.h>
+  int main(void) {
+    return mlockall(MCL_FUTURE);
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0y_vkvcd/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0y_vkvcd/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjo8q2_0i
+Code:
+
+  #include <linux/fs.h>
+  struct fsxattr foo;
+  int main(void) {
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjo8q2_0i/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpjo8q2_0i/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpkfctg3iq
+Code:
+
+    #include <stdint.h>
+    #include <stdio.h>
+    int main(void) {
+        return printf("%zu", SIZE_MAX);
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpkfctg3iq/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpkfctg3iq/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -Werror` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0t2z_lqu
+Code:
+
+  #include <stdint.h>
+  int main(void)
+  {
+    uint64_t x = 0, y = 0;
+    y = __atomic_load_n(&x, __ATOMIC_RELAXED);
+    __atomic_store_n(&x, y, __ATOMIC_RELAXED);
+    __atomic_compare_exchange_n(&x, &y, x, 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED);
+    __atomic_exchange_n(&x, y, __ATOMIC_RELAXED);
+    __atomic_fetch_add(&x, y, __ATOMIC_RELAXED);
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0t2z_lqu/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp0t2z_lqu/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -mcx16 -msse2` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo2cor0v8
+Code:
+
+  __int128_t a;
+  __uint128_t b;
+  int main(void) { b = a; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo2cor0v8/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpo2cor0v8/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnupkn65g
+Code:
+
+  __int128_t a;
+  __uint128_t b;
+  int main (void) {
+    a = a + b;
+    b = a * b;
+    a = a * a;
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnupkn65g/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnupkn65g/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnn3o07am
+Code:
+
+    int main(int ac, char **av) {
+      __uint128_t *p = __builtin_assume_aligned(av[ac - 1], 16);
+      p[1] = __atomic_load_n(&p[0], __ATOMIC_RELAXED);
+      __atomic_store_n(&p[2], p[3], __ATOMIC_RELAXED);
+      __atomic_compare_exchange_n(&p[4], &p[5], p[6], 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED);
+      return 0;
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnn3o07am/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnn3o07am/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -mcx16 -msse2` -> 1
+stderr:
+/usr/bin/ld: /tmp/ccZYwdNK.o: in function `main':
+testfile.c:(.text+0x40): undefined reference to `__atomic_load_16'
+/usr/bin/ld: testfile.c:(.text+0x80): undefined reference to `__atomic_store_16'
+/usr/bin/ld: testfile.c:(.text+0xb6): undefined reference to `__atomic_compare_exchange_16'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgsnfj_ll
+Code:
+__attribute__((optimize("O1")))
+    int main(int ac, char **av) {
+      __uint128_t *p = __builtin_assume_aligned(av[ac - 1], 16);
+      p[1] = __atomic_load_n(&p[0], __ATOMIC_RELAXED);
+      __atomic_store_n(&p[2], p[3], __ATOMIC_RELAXED);
+      __atomic_compare_exchange_n(&p[4], &p[5], p[6], 0, __ATOMIC_RELAXED, __ATOMIC_RELAXED);
+      return 0;
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgsnfj_ll/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgsnfj_ll/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -mcx16 -msse2` -> 1
+stderr:
+/usr/bin/ld: /tmp/ccLeAKfq.o: in function `main':
+testfile.c:(.text+0x12): undefined reference to `__atomic_load_16'
+/usr/bin/ld: testfile.c:(.text+0x30): undefined reference to `__atomic_store_16'
+/usr/bin/ld: testfile.c:(.text+0x57): undefined reference to `__atomic_compare_exchange_16'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ijx76xh
+Code:
+
+        int main(void)
+        {
+          __uint128_t x = 0, y = 0;
+          __sync_val_compare_and_swap_16(&x, y, x);
+          return 0;
+        }
+      
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ijx76xh/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp6ijx76xh/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11 -mcx16 -msse2` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvyh9ksm6
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/auxv.h>
+  int main(void) {
+    return getauxval(AT_HWCAP) == 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvyh9ksm6/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvyh9ksm6/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0un9r73
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+  #include <sys/auxv.h>
+  int main(void) {
+    unsigned long hwcap = 0;
+    elf_aux_info(AT_HWCAP, &hwcap, sizeof(hwcap));
+    return hwcap;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0un9r73/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0un9r73/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0un9r73/testfile.c: In function 'main':
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpv0un9r73/testfile.c:9:5: warning: implicit declaration of function 'elf_aux_info' [-Wimplicit-function-declaration]
+    9 |     elf_aux_info(AT_HWCAP, &hwcap, sizeof(hwcap));
+      |     ^~~~~~~~~~~~
+/usr/bin/ld: /tmp/ccKB5nt2.o: in function `main':
+testfile.c:(.text+0x27): undefined reference to `elf_aux_info'
+collect2: error: ld returned 1 exit status
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp41ln7fbh
+Code:
+
+  #include <linux/usbdevice_fs.h>
+
+  #ifndef USBDEVFS_GET_CAPABILITIES
+  #error "USBDEVFS_GET_CAPABILITIES undefined"
+  #endif
+
+  #ifndef USBDEVFS_DISCONNECT_CLAIM
+  #error "USBDEVFS_DISCONNECT_CLAIM undefined"
+  #endif
+
+  int main(void) { return 0; }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp41ln7fbh/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp41ln7fbh/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppak7xx1y
+Code:
+
+    #include <errno.h>
+    #include <asm/unistd.h>
+    #include <linux/keyctl.h>
+    #include <sys/syscall.h>
+    #include <unistd.h>
+    int main(void) {
+        return syscall(__NR_keyctl, KEYCTL_READ, 0, NULL, NULL, 0);
+    }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppak7xx1y/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppak7xx1y/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiu6fucgf
+Code:
+
+  #include <cpuid.h>
+  int main(void) {
+    unsigned a, b, c, d;
+    unsigned max = __get_cpuid_max(0, 0);
+
+    if (max >= 1) {
+        __cpuid(1, a, b, c, d);
+    }
+
+    if (max >= 7) {
+        __cpuid_count(7, 0, a, b, c, d);
+    }
+
+    return 0;
+  }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiu6fucgf/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpiu6fucgf/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvxzping3
+Code:
+
+        #include <asm/hwprobe.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef RISCV_HWPROBE_EXT_ZBA
+                RISCV_HWPROBE_EXT_ZBA;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvxzping3/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvxzping3/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpvxzping3/testfile.c:2:18: fatal error: asm/hwprobe.h: No such file or directory
+    2 |         #include <asm/hwprobe.h>
+      |                  ^~~~~~~~~~~~~~~
+compilation terminated.
+-----------
+Header "asm/hwprobe.h" has symbol "RISCV_HWPROBE_EXT_ZBA" : NO 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx8btnerr
+Code:
+
+    #include <cpuid.h>
+    #include <immintrin.h>
+    static int __attribute__((target("avx2"))) bar(void *a) {
+      __m256i x = *(__m256i *)a;
+      return _mm256_testz_si256(x, x);
+    }
+    int main(int argc, char *argv[]) { return bar(argv[argc - 1]); }
+  
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx8btnerr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx8btnerr/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj0nw52nk
+Code:
+
+    #include <cpuid.h>
+    #include <immintrin.h>
+    static int __attribute__((target("avx512bw"))) bar(void *a) {
+      __m512i *x = a;
+      __m512i res= _mm512_abs_epi8(*x);
+      return res[1];
+    }
+    int main(int argc, char *argv[]) { return bar(argv[0]); }
+  
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj0nw52nk/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj0nw52nk/output.exe -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9itu5fx_
+Code:
+
+    #include <arm_neon.h>
+    #ifndef __ARM_FEATURE_AES
+    __attribute__((target("+crypto")))
+    #endif
+    void foo(uint8x16_t *p) { *p = vaesmcq_u8(*p); }
+  
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9itu5fx_/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9itu5fx_/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 1
+stderr:
+/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmp9itu5fx_/testfile.c:2:14: fatal error: arm_neon.h: No such file or directory
+    2 |     #include <arm_neon.h>
+      |              ^~~~~~~~~~~~
+compilation terminated.
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx5mpm5zh
+Code:
+
+  #ifndef _GNU_SOURCE
+  #define _GNU_SOURCE
+  #endif
+
+    #include <errno.h>
+    #include <sys/types.h>
+    #include <sys/socket.h>
+    #include <linux/if_alg.h>
+    int main(void) {
+      int sock;
+      sock = socket(AF_ALG, SOCK_SEQPACKET, 0);
+      return sock;
+    }
+  
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx5mpm5zh/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpx5mpm5zh/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpawya9hmp
+Code:
+#include <sys/socket.h>
+        #include <linux/vm_sockets.h>
+        int main(void) {
+            /* If it's not defined as a macro, try to use as a symbol */
+            #ifndef AF_VSOCK
+                AF_VSOCK;
+            #endif
+            return 0;
+        }
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpawya9hmp/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpawya9hmp/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -std=gnu11` -> 0
+Header "linux/vm_sockets.h" has symbol "AF_VSOCK" : YES 
+Program scripts/minikconf.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/minikconf.py)
+Configuring x86_64-linux-user-config-target.h using configuration
+Program scripts/make-config-poison.sh found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/make-config-poison.sh)
+
+Executing subproject libvhost-user 
+
+Project name: libvhost-user
+Project version: undefined
+C compiler for the host machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the host machine: cc -m64 ld.bfd 2.42
+C compiler for the build machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the build machine: cc -m64 ld.bfd 2.42
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm10y3a5o
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm10y3a5o/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm10y3a5o/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wsign-compare` -> 0
+Compiler for C supports arguments -Wsign-compare: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgk6jiwqr
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgk6jiwqr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgk6jiwqr/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wdeclaration-after-statement` -> 0
+Compiler for C supports arguments -Wdeclaration-after-statement: YES 
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj30gycvg
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj30gycvg/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj30gycvg/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wstrict-aliasing` -> 0
+Compiler for C supports arguments -Wstrict-aliasing: YES 
+Dependency threads found: YES unknown (cached)
+Dependency glib-2.0 found: YES 2.82.2 (overridden)
+Build targets in project: 4
+Subproject libvhost-user finished.
+
+
+Executing subproject libvduse 
+
+Project name: libvduse
+Project version: undefined
+C compiler for the host machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the host machine: cc -m64 ld.bfd 2.42
+C compiler for the build machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the build machine: cc -m64 ld.bfd 2.42
+Using cached compile:
+Cached command line:  cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm10y3a5o/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpm10y3a5o/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wsign-compare 
+
+Code:
+ extern int i;
+int i;
+
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Compiler for C supports arguments -Wsign-compare: YES (cached)
+Using cached compile:
+Cached command line:  cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgk6jiwqr/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpgk6jiwqr/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wdeclaration-after-statement 
+
+Code:
+ extern int i;
+int i;
+
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Compiler for C supports arguments -Wdeclaration-after-statement: YES (cached)
+Using cached compile:
+Cached command line:  cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj30gycvg/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpj30gycvg/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wstrict-aliasing 
+
+Code:
+ extern int i;
+int i;
+
+Cached compiler stdout:
+ 
+Cached compiler stderr:
+ 
+Compiler for C supports arguments -Wstrict-aliasing: YES (cached)
+Build targets in project: 5
+Subproject libvduse finished.
+
+Configuring config-host.h using configuration
+Program scripts/hxtool found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/hxtool)
+Program scripts/shaderinclude.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/shaderinclude.py)
+Program scripts/qapi-gen.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/qapi-gen.py)
+Program scripts/qemu-version.sh found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/qemu-version.sh)
+Program scripts/decodetree.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/decodetree.py)
+Program scripts/modinfo-collect.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/modinfo-collect.py)
+Program scripts/modinfo-generate.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/modinfo-generate.py)
+Program nm found: YES
+Program scripts/undefsym.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/undefsym.py)
+Program scripts/feature_to_c.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/feature_to_c.py)
+Program scripts/rust/rust_root_crate.sh found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/rust/rust_root_crate.sh)
+Adding test "xml-preprocess"
+Program dtc found: NO
+Program qemu-keymap found: NO
+Program /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/sphinx-build skipped: feature docs disabled
+Adding test "QAPI firmware.json regression tests"
+Program /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/decodetree.py found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/decodetree.py)
+Adding test "err_argset1"
+Adding test "err_argset2"
+Adding test "err_field1"
+Adding test "err_field2"
+Adding test "err_field3"
+Adding test "err_field4"
+Adding test "err_field5"
+Adding test "err_field6"
+Adding test "err_field7"
+Adding test "err_field8"
+Adding test "err_field9"
+Adding test "err_field10"
+Adding test "err_init1"
+Adding test "err_init2"
+Adding test "err_init3"
+Adding test "err_init4"
+Adding test "err_overlap1"
+Adding test "err_overlap2"
+Adding test "err_overlap3"
+Adding test "err_overlap4"
+Adding test "err_overlap5"
+Adding test "err_overlap6"
+Adding test "err_overlap7"
+Adding test "err_overlap8"
+Adding test "err_overlap9"
+Adding test "err_pattern_group_empty"
+Adding test "err_pattern_group_ident1"
+Adding test "err_pattern_group_ident2"
+Adding test "err_pattern_group_nest1"
+Adding test "err_pattern_group_nest2"
+Adding test "err_pattern_group_nest3"
+Adding test "err_pattern_group_overlap1"
+Adding test "err_width1"
+Adding test "err_width2"
+Adding test "err_width3"
+Adding test "err_width4"
+Adding test "succ_argset_type1"
+Adding test "succ_function"
+Adding test "succ_ident1"
+Adding test "succ_named_field"
+Adding test "succ_pattern_group_nest1"
+Adding test "succ_pattern_group_nest2"
+Adding test "succ_pattern_group_nest3"
+Adding test "succ_pattern_group_nest4"
+
+Executing subproject berkeley-softfloat-3 
+
+Project name: berkeley-softfloat-3
+Project version: undefined
+C compiler for the host machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the host machine: cc -m64 ld.bfd 2.42
+C compiler for the build machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the build machine: cc -m64 ld.bfd 2.42
+Configuring platform.h using configuration
+Build targets in project: 131
+Subproject berkeley-softfloat-3 finished.
+
+
+Executing subproject berkeley-testfloat-3 
+
+Project name: berkeley-testfloat-3
+Project version: undefined
+C compiler for the host machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the host machine: cc -m64 ld.bfd 2.42
+C compiler for the build machine: cc -m64 (gcc 13.2.0 "cc (Debian 13.2.0-23) 13.2.0")
+C linker for the build machine: cc -m64 ld.bfd 2.42
+Configuring platform.h using configuration
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppf4s2c7b
+Code:
+extern int i;
+int i;
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppf4s2c7b/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmppf4s2c7b/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 -Wignored-pragmas -Wno-ignored-pragmas` -> 1
+stderr:
+cc: error: unrecognized command-line option '-Wignored-pragmas'; did you mean '-Wno-pragmas'?
+-----------
+Compiler for C supports arguments -Wno-ignored-pragmas: NO 
+Build targets in project: 133
+Subproject berkeley-testfloat-3 finished.
+
+Adding test "fp-test-float-to-float"
+Adding test "fp-test-int-to-float"
+Adding test "fp-test-uint-to-float"
+Adding test "fp-test-float-to-int"
+Adding test "fp-test-float-to-uint"
+Adding test "fp-test-round-to-integer"
+Adding test "fp-test-eq_signaling"
+Adding test "fp-test-le"
+Adding test "fp-test-le_quiet"
+Adding test "fp-test-lt_quiet"
+Adding test "fp-test-add"
+Adding test "fp-test-sub"
+Adding test "fp-test-mul"
+Adding test "fp-test-div"
+Adding test "fp-test-rem"
+Adding test "fp-test-sqrt"
+Adding test "fp-test-mulAdd"
+Adding test "fp-test-log2"
+Adding test "check-block-qdict"
+Adding test "check-qdict"
+Adding test "check-qnum"
+Adding test "check-qstring"
+Adding test "check-qlist"
+Adding test "check-qnull"
+Adding test "check-qobject"
+Adding test "check-qjson"
+Adding test "check-qlit"
+Adding test "test-error-report"
+Adding test "test-qobject-output-visitor"
+Adding test "test-clone-visitor"
+Adding test "test-qobject-input-visitor"
+Adding test "test-forward-visitor"
+Adding test "test-string-input-visitor"
+Adding test "test-string-output-visitor"
+Adding test "test-visitor-serialization"
+Adding test "test-bitmap"
+Adding test "test-resv-mem"
+Adding test "test-x86-topo"
+Adding test "test-cutils"
+Adding test "test-div128"
+Adding test "test-shift128"
+Adding test "test-mul64"
+Adding test "test-int128"
+Adding test "rcutorture"
+Adding test "test-rcu-list"
+Adding test "test-rcu-simpleq"
+Adding test "test-rcu-tailq"
+Adding test "test-rcu-slist"
+Adding test "test-qdist"
+Adding test "test-qht"
+Adding test "test-qtree"
+Adding test "test-bitops"
+Adding test "test-bitcnt"
+Adding test "test-qgraph"
+Adding test "check-qom-interface"
+Adding test "check-qom-proplist"
+Adding test "test-qemu-opts"
+Adding test "test-keyval"
+Adding test "test-logging"
+Adding test "test-qapi-util"
+Adding test "test-interval-tree"
+Adding test "test-fifo"
+Adding test "QAPI schema regression tests"
+Program diff found: YES (/usr/bin/diff)
+Program dbus-daemon found: YES (/usr/bin/dbus-daemon)
+Determining dependency 'sysprof-capture-4' with pkg-config executable '/usr/bin/pkg-config'
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --modversion sysprof-capture-4` -> 0
+stdout:
+47.0
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --cflags sysprof-capture-4` -> 0
+stdout:
+-I/usr/include/sysprof-6 -pthread
+-----------
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs sysprof-capture-4` -> 0
+stdout:
+-L/usr/lib/x86_64-linux-gnu -lsysprof-capture-4 -pthread
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --libs sysprof-capture-4` -> 0
+stdout:
+-lsysprof-capture-4 -pthread
+-----------
+Run-time dependency sysprof-capture-4 found: YES 47.0
+env[PKG_CONFIG_ALLOW_SYSTEM_LIBS]: 1
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --static --libs glib-2.0` -> 0
+stdout:
+-L/usr/lib/x86_64-linux-gnu -lglib-2.0 -latomic -lm -pthread -L/usr/lib/x86_64-linux-gnu -lsysprof-capture-4 -pthread -lpcre2-8
+-----------
+env[PKG_CONFIG_PATH]: 
+env[PKG_CONFIG]: /usr/bin/pkg-config
+-----------
+Called: `/usr/bin/pkg-config --static --libs glib-2.0` -> 0
+stdout:
+-lglib-2.0 -latomic -lm -pthread -lsysprof-capture-4 -pthread -lpcre2-8
+-----------
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0esj8fk
+Code:
+int main(void) { return 0; }
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0esj8fk/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpg0esj8fk/output.exe -D_FILE_OFFSET_BITS=64 -O0 -lm -Wl,--allow-shlib-undefined` -> 0
+Run-time dependency glib-2.0 found: YES 2.82.2
+Program initrd-stress.sh found: YES (/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/tests/migration/initrd-stress.sh)
+Build targets in project: 191
+
+qemu 9.1.90
+
+  Build environment
+    Build directory                 : /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build
+    Source path                     : /home/hugo/athackctf2025/challenges/prime-disassembly/qemu
+    Download dependencies           : YES
+
+  Directories
+    Build directory                 : /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build
+    Source path                     : /home/hugo/athackctf2025/challenges/prime-disassembly/qemu
+    Download dependencies           : YES
+    Install prefix                  : /usr/local
+    BIOS directory                  : share/qemu
+    firmware path                   : share/qemu-firmware
+    binary directory                : /usr/local/bin
+    library directory               : /usr/local/lib/x86_64-linux-gnu
+    module directory                : lib/x86_64-linux-gnu/qemu
+    libexec directory               : /usr/local/libexec
+    include directory               : /usr/local/include
+    config directory                : /usr/local/etc
+    local state directory           : /var/local
+    Manual directory                : /usr/local/share/man
+    Doc directory                   : /usr/local/share/doc
+
+  Host binaries
+    python                          : /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 (version: 3.12)
+    sphinx-build                    : NO
+    gdb                             : 
+    iasl                            : NO
+    genisoimage                     : 
+
+  Configurable features
+    Documentation                   : NO
+    system-mode emulation           : NO
+    user-mode emulation             : YES
+    block layer                     : NO
+    Install blobs                   : YES
+    module support                  : NO
+    fuzzing support                 : NO
+    Trace backends                  : log
+    D-Bus display                   : NO
+    QOM debugging                   : YES
+    Relocatable install             : YES
+    vhost-kernel support            : YES
+    vhost-net support               : YES
+    vhost-user support              : YES
+    vhost-user-crypto support       : YES
+    vhost-user-blk server support   : NO
+    vhost-vdpa support              : YES
+    build guest agent               : NO
+
+  Compilation
+    host CPU                        : x86_64
+    host endianness                 : little
+    C compiler                      : cc -m64
+    Host C compiler                 : cc -m64
+    C++ compiler                    : NO
+    Objective-C compiler            : NO
+    Rust support                    : NO
+    CFLAGS                          : -g -O2
+    QEMU_CFLAGS                     : -mcx16 -msse2 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -fno-strict-aliasing -fno-common -fwrapv -ftrivial-auto-var-init=zero -fzero-call-used-regs=used-gpr -fstack-protector-strong
+    QEMU_LDFLAGS                    : -fstack-protector-strong -Wl,-z,relro -Wl,-z,now
+    link-time optimization (LTO)    : NO
+    PIE                             : YES
+    static build                    : NO
+    malloc trim support             : YES
+    membarrier                      : NO
+    debug graph lock                : NO
+    debug stack usage               : NO
+    mutex debugging                 : NO
+    memory allocator                : system
+    avx2 optimization               : YES
+    avx512bw optimization           : YES
+    gcov                            : NO
+    thread sanitizer                : NO
+    CFI support                     : NO
+    strip binaries                  : NO
+    sparse                          : NO
+    mingw32 support                 : NO
+
+  Cross compilers
+    x86_64                          : cc
+
+  Targets and accelerators
+    TCG support                     : YES
+    TCG backend                     : native (x86_64)
+    TCG plugins                     : YES
+    TCG debug enabled               : NO
+    syscall buffer debugging support: NO
+    target list                     : x86_64-linux-user
+
+  Block layer support
+    coroutine backend               : ucontext
+    coroutine pool                  : YES
+
+  Crypto
+    TLS priority                    : NORMAL
+    GNUTLS support                  : NO
+    libgcrypt                       : NO
+    nettle                          : NO
+    SM4 ALG support                 : NO
+    SM3 ALG support                 : NO
+    AF_ALG support                  : NO
+    rng-none                        : NO
+    Linux keyring                   : YES
+    Linux keyutils                  : NO
+
+  User interface
+    SDL support                     : NO
+    SDL image support               : NO
+    GTK support                     : NO
+    pixman                          : NO
+    VTE support                     : NO
+    PNG support                     : NO
+    VNC support                     : NO
+    spice protocol support          : NO
+    curses support                  : NO
+    brlapi support                  : NO
+
+  Graphics backends
+    VirGL support                   : NO
+    Rutabaga support                : NO
+
+  Audio backends
+    OSS support                     : NO
+    sndio support                   : NO
+    ALSA support                    : NO
+    PulseAudio support              : NO
+    PipeWire support                : NO
+    JACK support                    : NO
+
+  Network backends
+    AF_XDP support                  : NO
+    slirp support                   : NO
+    vde support                     : NO
+    netmap support                  : NO
+    l2tpv3 support                  : NO
+
+  Dependencies
+    libtasn1                        : NO
+    PAM                             : NO
+    iconv support                   : NO
+    blkio support                   : NO
+    curl support                    : NO
+    Multipath support               : NO
+    Linux AIO support               : NO
+    Linux io_uring support          : NO
+    ATTR/XATTR support              : YES
+    RDMA support                    : NO
+    fdt support                     : NO
+    libcap-ng support               : NO
+    bpf support                     : NO
+    rbd support                     : NO
+    smartcard support               : NO
+    U2F support                     : NO
+    libusb                          : NO
+    usb net redir                   : NO
+    OpenGL support (epoxy)          : NO
+    GBM                             : NO
+    libiscsi support                : NO
+    libnfs support                  : NO
+    seccomp support                 : NO
+    GlusterFS support               : NO
+    hv-balloon support              : NO
+    TPM support                     : YES
+    libssh support                  : NO
+    lzo support                     : NO
+    snappy support                  : NO
+    bzip2 support                   : NO
+    lzfse support                   : NO
+    zstd support                    : NO
+    Query Processing Library support: NO
+    UADK Library support            : NO
+    qatzip support                  : NO
+    NUMA host support               : NO
+    capstone                        : NO
+    libpmem support                 : NO
+    libdaxctl support               : NO
+    libcbor support                 : NO
+    libudev                         : NO
+    FUSE lseek                      : NO
+    selinux                         : [1;32mYES[0m [1;36m3.7[0m
+    libdw                           : NO
+
+  Subprojects
+    berkeley-softfloat-3            : YES
+    berkeley-testfloat-3            : YES
+    libvduse                        : YES
+    libvhost-user                   : YES
+
+  User defined options
+    Native files                    : config-meson.cross
+    docs                            : disabled
+    plugins                         : true
+
+Found ninja-1.12.1 at /usr/bin/ninja
+Running compile:
+Working directory:  /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnwhdz9n5
+Code:
+
+-----------
+Command line: `cc -m64 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnwhdz9n5/testfile.c -o /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/meson-private/tmpnwhdz9n5/output.obj -c -D_FILE_OFFSET_BITS=64 -O0 --print-search-dirs` -> 0
+stdout:
+install: /usr/lib/gcc/x86_64-linux-gnu/13/
+programs: =/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/13/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/13/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../lib/:/lib/x86_64-linux-gnu/13/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/13/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/13/../../../:/lib/:/usr/lib/
+-----------
+Failed to guess install tag for /usr/local/share/qemu/trace-events-all
+Failed to guess install tag for /usr/local/share/qemu/bios.bin
+Failed to guess install tag for /usr/local/share/qemu/bios-256k.bin
+Failed to guess install tag for /usr/local/share/qemu/bios-microvm.bin
+Failed to guess install tag for /usr/local/share/qemu/qboot.rom
+Failed to guess install tag for /usr/local/share/qemu/vgabios.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-cirrus.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-stdvga.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-vmware.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-qxl.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-virtio.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-ramfb.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-bochs-display.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-ati.bin
+Failed to guess install tag for /usr/local/share/qemu/openbios-sparc32
+Failed to guess install tag for /usr/local/share/qemu/openbios-sparc64
+Failed to guess install tag for /usr/local/share/qemu/openbios-ppc
+Failed to guess install tag for /usr/local/share/qemu/QEMU,tcx.bin
+Failed to guess install tag for /usr/local/share/qemu/QEMU,cgthree.bin
+Failed to guess install tag for /usr/local/share/qemu/pxe-e1000.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-eepro100.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-ne2k_pci.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-pcnet.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-rtl8139.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-virtio.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-e1000.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-eepro100.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-ne2k_pci.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-pcnet.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-rtl8139.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-virtio.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-e1000e.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-vmxnet3.rom
+Failed to guess install tag for /usr/local/share/qemu/qemu-nsis.bmp
+Failed to guess install tag for /usr/local/share/qemu/multiboot.bin
+Failed to guess install tag for /usr/local/share/qemu/multiboot_dma.bin
+Failed to guess install tag for /usr/local/share/qemu/linuxboot.bin
+Failed to guess install tag for /usr/local/share/qemu/linuxboot_dma.bin
+Failed to guess install tag for /usr/local/share/qemu/kvmvapic.bin
+Failed to guess install tag for /usr/local/share/qemu/pvh.bin
+Failed to guess install tag for /usr/local/share/qemu/s390-ccw.img
+Failed to guess install tag for /usr/local/share/qemu/slof.bin
+Failed to guess install tag for /usr/local/share/qemu/skiboot.lid
+Failed to guess install tag for /usr/local/share/qemu/palcode-clipper
+Failed to guess install tag for /usr/local/share/qemu/u-boot.e500
+Failed to guess install tag for /usr/local/share/qemu/u-boot-sam460-20100605.bin
+Failed to guess install tag for /usr/local/share/qemu/qemu_vga.ndrv
+Failed to guess install tag for /usr/local/share/qemu/edk2-licenses.txt
+Failed to guess install tag for /usr/local/share/qemu/hppa-firmware.img
+Failed to guess install tag for /usr/local/share/qemu/hppa-firmware64.img
+Failed to guess install tag for /usr/local/share/qemu/opensbi-riscv32-generic-fw_dynamic.bin
+Failed to guess install tag for /usr/local/share/qemu/opensbi-riscv64-generic-fw_dynamic.bin
+Failed to guess install tag for /usr/local/share/qemu/npcm7xx_bootrom.bin
+Failed to guess install tag for /usr/local/share/qemu/vof.bin
+Failed to guess install tag for /usr/local/share/qemu/vof-nvram.bin
+Failed to guess install tag for /usr/local/share/qemu/bamboo.dtb
+Failed to guess install tag for /usr/local/share/qemu/canyonlands.dtb
+Failed to guess install tag for /usr/local/share/qemu/petalogix-s3adsp1800.dtb
+Failed to guess install tag for /usr/local/share/qemu/petalogix-ml605.dtb
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ar
+Failed to guess install tag for /usr/local/share/qemu/keymaps/bepo
+Failed to guess install tag for /usr/local/share/qemu/keymaps/cz
+Failed to guess install tag for /usr/local/share/qemu/keymaps/da
+Failed to guess install tag for /usr/local/share/qemu/keymaps/de
+Failed to guess install tag for /usr/local/share/qemu/keymaps/de-ch
+Failed to guess install tag for /usr/local/share/qemu/keymaps/en-gb
+Failed to guess install tag for /usr/local/share/qemu/keymaps/en-us
+Failed to guess install tag for /usr/local/share/qemu/keymaps/es
+Failed to guess install tag for /usr/local/share/qemu/keymaps/et
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fi
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fo
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-be
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-ca
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-ch
+Failed to guess install tag for /usr/local/share/qemu/keymaps/hr
+Failed to guess install tag for /usr/local/share/qemu/keymaps/hu
+Failed to guess install tag for /usr/local/share/qemu/keymaps/is
+Failed to guess install tag for /usr/local/share/qemu/keymaps/it
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ja
+Failed to guess install tag for /usr/local/share/qemu/keymaps/lt
+Failed to guess install tag for /usr/local/share/qemu/keymaps/lv
+Failed to guess install tag for /usr/local/share/qemu/keymaps/mk
+Failed to guess install tag for /usr/local/share/qemu/keymaps/nl
+Failed to guess install tag for /usr/local/share/qemu/keymaps/no
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pl
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pt
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pt-br
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ru
+Failed to guess install tag for /usr/local/share/qemu/keymaps/th
+Failed to guess install tag for /usr/local/share/qemu/keymaps/tr
+Failed to guess install tag for /usr/local/share/qemu/trace-events-all
+Failed to guess install tag for /usr/local/share/qemu/bios.bin
+Failed to guess install tag for /usr/local/share/qemu/bios-256k.bin
+Failed to guess install tag for /usr/local/share/qemu/bios-microvm.bin
+Failed to guess install tag for /usr/local/share/qemu/qboot.rom
+Failed to guess install tag for /usr/local/share/qemu/vgabios.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-cirrus.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-stdvga.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-vmware.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-qxl.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-virtio.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-ramfb.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-bochs-display.bin
+Failed to guess install tag for /usr/local/share/qemu/vgabios-ati.bin
+Failed to guess install tag for /usr/local/share/qemu/openbios-sparc32
+Failed to guess install tag for /usr/local/share/qemu/openbios-sparc64
+Failed to guess install tag for /usr/local/share/qemu/openbios-ppc
+Failed to guess install tag for /usr/local/share/qemu/QEMU,tcx.bin
+Failed to guess install tag for /usr/local/share/qemu/QEMU,cgthree.bin
+Failed to guess install tag for /usr/local/share/qemu/pxe-e1000.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-eepro100.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-ne2k_pci.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-pcnet.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-rtl8139.rom
+Failed to guess install tag for /usr/local/share/qemu/pxe-virtio.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-e1000.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-eepro100.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-ne2k_pci.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-pcnet.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-rtl8139.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-virtio.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-e1000e.rom
+Failed to guess install tag for /usr/local/share/qemu/efi-vmxnet3.rom
+Failed to guess install tag for /usr/local/share/qemu/qemu-nsis.bmp
+Failed to guess install tag for /usr/local/share/qemu/multiboot.bin
+Failed to guess install tag for /usr/local/share/qemu/multiboot_dma.bin
+Failed to guess install tag for /usr/local/share/qemu/linuxboot.bin
+Failed to guess install tag for /usr/local/share/qemu/linuxboot_dma.bin
+Failed to guess install tag for /usr/local/share/qemu/kvmvapic.bin
+Failed to guess install tag for /usr/local/share/qemu/pvh.bin
+Failed to guess install tag for /usr/local/share/qemu/s390-ccw.img
+Failed to guess install tag for /usr/local/share/qemu/slof.bin
+Failed to guess install tag for /usr/local/share/qemu/skiboot.lid
+Failed to guess install tag for /usr/local/share/qemu/palcode-clipper
+Failed to guess install tag for /usr/local/share/qemu/u-boot.e500
+Failed to guess install tag for /usr/local/share/qemu/u-boot-sam460-20100605.bin
+Failed to guess install tag for /usr/local/share/qemu/qemu_vga.ndrv
+Failed to guess install tag for /usr/local/share/qemu/edk2-licenses.txt
+Failed to guess install tag for /usr/local/share/qemu/hppa-firmware.img
+Failed to guess install tag for /usr/local/share/qemu/hppa-firmware64.img
+Failed to guess install tag for /usr/local/share/qemu/opensbi-riscv32-generic-fw_dynamic.bin
+Failed to guess install tag for /usr/local/share/qemu/opensbi-riscv64-generic-fw_dynamic.bin
+Failed to guess install tag for /usr/local/share/qemu/npcm7xx_bootrom.bin
+Failed to guess install tag for /usr/local/share/qemu/vof.bin
+Failed to guess install tag for /usr/local/share/qemu/vof-nvram.bin
+Failed to guess install tag for /usr/local/share/qemu/bamboo.dtb
+Failed to guess install tag for /usr/local/share/qemu/canyonlands.dtb
+Failed to guess install tag for /usr/local/share/qemu/petalogix-s3adsp1800.dtb
+Failed to guess install tag for /usr/local/share/qemu/petalogix-ml605.dtb
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ar
+Failed to guess install tag for /usr/local/share/qemu/keymaps/bepo
+Failed to guess install tag for /usr/local/share/qemu/keymaps/cz
+Failed to guess install tag for /usr/local/share/qemu/keymaps/da
+Failed to guess install tag for /usr/local/share/qemu/keymaps/de
+Failed to guess install tag for /usr/local/share/qemu/keymaps/de-ch
+Failed to guess install tag for /usr/local/share/qemu/keymaps/en-gb
+Failed to guess install tag for /usr/local/share/qemu/keymaps/en-us
+Failed to guess install tag for /usr/local/share/qemu/keymaps/es
+Failed to guess install tag for /usr/local/share/qemu/keymaps/et
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fi
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fo
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-be
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-ca
+Failed to guess install tag for /usr/local/share/qemu/keymaps/fr-ch
+Failed to guess install tag for /usr/local/share/qemu/keymaps/hr
+Failed to guess install tag for /usr/local/share/qemu/keymaps/hu
+Failed to guess install tag for /usr/local/share/qemu/keymaps/is
+Failed to guess install tag for /usr/local/share/qemu/keymaps/it
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ja
+Failed to guess install tag for /usr/local/share/qemu/keymaps/lt
+Failed to guess install tag for /usr/local/share/qemu/keymaps/lv
+Failed to guess install tag for /usr/local/share/qemu/keymaps/mk
+Failed to guess install tag for /usr/local/share/qemu/keymaps/nl
+Failed to guess install tag for /usr/local/share/qemu/keymaps/no
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pl
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pt
+Failed to guess install tag for /usr/local/share/qemu/keymaps/pt-br
+Failed to guess install tag for /usr/local/share/qemu/keymaps/ru
+Failed to guess install tag for /usr/local/share/qemu/keymaps/th
+Failed to guess install tag for /usr/local/share/qemu/keymaps/tr
+Running postconf script '/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/pyvenv/bin/python3 /home/hugo/athackctf2025/challenges/prime-disassembly/qemu/scripts/symlink-install-tree.py'

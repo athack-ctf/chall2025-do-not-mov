@@ -1,0 +1,130 @@
+
+SPEED = quick
+
+.speed.quick = $(foreach s,$(sort $(filter-out %-slow %-thorough, $1)), --suite $s)
+.speed.slow = $(foreach s,$(sort $(filter-out %-thorough, $1)), --suite $s)
+.speed.thorough = $(foreach s,$(sort $1), --suite $s)
+
+TIMEOUT_MULTIPLIER = 1
+.mtestargs = --no-rebuild -t $(TIMEOUT_MULTIPLIER)
+ifneq ($(SPEED), quick)
+.mtestargs += --setup $(SPEED)
+endif
+.mtestargs += $(subst -j,--num-processes , $(filter-out -j, $(lastword -j1 $(filter -j%, $(MAKEFLAGS)))))
+
+.check.mtestargs = $(MTESTARGS) $(.mtestargs) $(if $(V),--verbose,--print-errorlogs)
+.bench.mtestargs = $(MTESTARGS) $(.mtestargs) --benchmark --verbose
+
+all-check-targets = check-unit check-qapi-schema check-qapi-interop check-decodetree check-softfloat check-softfloat-conv check-softfloat-compare check-softfloat-ops check-qapi-frontend
+all-check-xml = check-report-unit.junit.xml check-report-qapi-schema.junit.xml check-report-qapi-interop.junit.xml check-report-decodetree.junit.xml check-report-softfloat.junit.xml check-report-softfloat-conv.junit.xml check-report-softfloat-compare.junit.xml check-report-softfloat-ops.junit.xml check-report-qapi-frontend.junit.xml
+.PHONY: check do-meson-check check-report.junit.xml $(all-check-targets) $(all-check-xml)
+ifeq ($(filter check, $(MAKECMDGOALS)),)
+.check.mtestargs += $(call .speed.$(SPEED), $(.check.mtest-suites))
+endif
+check-build: run-ninja
+check $(all-check-targets): do-meson-check
+do-meson-check: run-ninja; $(if $(MAKE.n),,+)$(MESON) test $(.check.mtestargs)
+check-report.junit.xml $(all-check-xml): check-report%.junit.xml: run-ninja
+	$(MAKE) check$* MTESTARGS="$(MTESTARGS) --logbase check-report$*" && ln -f meson-logs/$@ .
+
+.check-unit.deps = tests/unit/rcutorture tests/unit/test-string-output-visitor tests/unit/check-qdict tests/unit/test-rcu-slist tests/unit/test-bitops tests/unit/test-keyval tests/unit/check-qjson tests/unit/test-x86-topo tests/unit/test-clone-visitor tests/unit/test-qobject-input-visitor tests/unit/check-qom-interface tests/unit/test-bitmap tests/unit/test-qobject-output-visitor tests/unit/test-rcu-simpleq tests/unit/test-forward-visitor tests/unit/test-qgraph tests/unit/test-qht tests/unit/test-interval-tree tests/unit/test-logging tests/unit/check-qstring tests/unit/test-mul64 tests/unit/test-visitor-serialization tests/unit/test-int128 tests/unit/test-resv-mem tests/unit/check-qobject tests/unit/test-qtree tests/unit/test-qdist tests/unit/check-qlist tests/unit/test-qemu-opts tests/unit/test-shift128 tests/unit/test-div128 tests/unit/test-qapi-util tests/unit/check-block-qdict tests/unit/test-rcu-tailq tests/unit/check-qlit tests/unit/test-rcu-list tests/unit/check-qom-proplist tests/unit/check-qnum tests/unit/test-bitcnt tests/unit/test-cutils tests/unit/check-qnull tests/unit/test-error-report tests/unit/test-fifo tests/unit/test-string-input-visitor
+.ninja-goals.check-unit += $(.check-unit.deps)
+.ninja-goals.check-report-unit.junit.xml += $(.check-unit.deps)
+.ninja-goals.check += $(.check-unit.deps)
+.ninja-goals.check-report.junit.xml += $(.check-unit.deps)
+.ninja-goals.check-build += $(.check-unit.deps)
+ifneq ($(filter check-unit check-report-unit.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += unit
+endif
+
+.check-qapi-schema.deps = 
+.ninja-goals.check-qapi-schema += $(.check-qapi-schema.deps)
+.ninja-goals.check-report-qapi-schema.junit.xml += $(.check-qapi-schema.deps)
+.ninja-goals.check += $(.check-qapi-schema.deps)
+.ninja-goals.check-report.junit.xml += $(.check-qapi-schema.deps)
+.ninja-goals.check-build += $(.check-qapi-schema.deps)
+ifneq ($(filter check-qapi-schema check-report-qapi-schema.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += qapi-schema
+endif
+
+.check-qapi-interop.deps = 
+.ninja-goals.check-qapi-interop += $(.check-qapi-interop.deps)
+.ninja-goals.check-report-qapi-interop.junit.xml += $(.check-qapi-interop.deps)
+.ninja-goals.check += $(.check-qapi-interop.deps)
+.ninja-goals.check-report.junit.xml += $(.check-qapi-interop.deps)
+.ninja-goals.check-build += $(.check-qapi-interop.deps)
+ifneq ($(filter check-qapi-interop check-report-qapi-interop.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += qapi-interop
+endif
+
+.check-decodetree.deps = 
+.ninja-goals.check-decodetree += $(.check-decodetree.deps)
+.ninja-goals.check-report-decodetree.junit.xml += $(.check-decodetree.deps)
+.ninja-goals.check += $(.check-decodetree.deps)
+.ninja-goals.check-report.junit.xml += $(.check-decodetree.deps)
+.ninja-goals.check-build += $(.check-decodetree.deps)
+ifneq ($(filter check-decodetree check-report-decodetree.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += decodetree
+endif
+
+.check-softfloat.deps = tests/fp/fp-test-log2 tests/fp/fp-test
+.ninja-goals.check-softfloat += $(.check-softfloat.deps)
+.ninja-goals.check-report-softfloat.junit.xml += $(.check-softfloat.deps)
+.ninja-goals.check += $(.check-softfloat.deps)
+.ninja-goals.check-report.junit.xml += $(.check-softfloat.deps)
+.ninja-goals.check-build += $(.check-softfloat.deps)
+ifneq ($(filter check-softfloat check-report-softfloat.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += softfloat softfloat-slow
+endif
+
+.check-softfloat-conv.deps = tests/fp/fp-test
+.ninja-goals.check-softfloat-conv += $(.check-softfloat-conv.deps)
+.ninja-goals.check-report-softfloat-conv.junit.xml += $(.check-softfloat-conv.deps)
+.ninja-goals.check += $(.check-softfloat-conv.deps)
+.ninja-goals.check-report.junit.xml += $(.check-softfloat-conv.deps)
+.ninja-goals.check-build += $(.check-softfloat-conv.deps)
+ifneq ($(filter check-softfloat-conv check-report-softfloat-conv.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += softfloat-conv
+endif
+
+.check-softfloat-compare.deps = tests/fp/fp-test
+.ninja-goals.check-softfloat-compare += $(.check-softfloat-compare.deps)
+.ninja-goals.check-report-softfloat-compare.junit.xml += $(.check-softfloat-compare.deps)
+.ninja-goals.check += $(.check-softfloat-compare.deps)
+.ninja-goals.check-report.junit.xml += $(.check-softfloat-compare.deps)
+.ninja-goals.check-build += $(.check-softfloat-compare.deps)
+ifneq ($(filter check-softfloat-compare check-report-softfloat-compare.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += softfloat-compare
+endif
+
+.check-softfloat-ops.deps = tests/fp/fp-test-log2 tests/fp/fp-test
+.ninja-goals.check-softfloat-ops += $(.check-softfloat-ops.deps)
+.ninja-goals.check-report-softfloat-ops.junit.xml += $(.check-softfloat-ops.deps)
+.ninja-goals.check += $(.check-softfloat-ops.deps)
+.ninja-goals.check-report.junit.xml += $(.check-softfloat-ops.deps)
+.ninja-goals.check-build += $(.check-softfloat-ops.deps)
+ifneq ($(filter check-softfloat-ops check-report-softfloat-ops.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += softfloat-ops softfloat-ops-slow
+endif
+
+.check-qapi-frontend.deps = 
+.ninja-goals.check-qapi-frontend += $(.check-qapi-frontend.deps)
+.ninja-goals.check-report-qapi-frontend.junit.xml += $(.check-qapi-frontend.deps)
+.ninja-goals.check += $(.check-qapi-frontend.deps)
+.ninja-goals.check-report.junit.xml += $(.check-qapi-frontend.deps)
+.ninja-goals.check-build += $(.check-qapi-frontend.deps)
+ifneq ($(filter check-qapi-frontend check-report-qapi-frontend.junit.xml check check-report.junit.xml, $(MAKECMDGOALS)),)
+.check.mtest-suites += qapi-frontend
+endif
+
+all-bench-targets = 
+all-bench-xml = 
+.PHONY: bench do-meson-bench bench-report.junit.xml $(all-bench-targets) $(all-bench-xml)
+ifeq ($(filter bench, $(MAKECMDGOALS)),)
+.bench.mtestargs += $(call .speed.$(SPEED), $(.bench.mtest-suites))
+endif
+bench-build: run-ninja
+bench $(all-bench-targets): do-meson-bench
+do-meson-bench: run-ninja; $(if $(MAKE.n),,+)$(MESON) test $(.bench.mtestargs)
+bench-report.junit.xml $(all-bench-xml): bench-report%.junit.xml: run-ninja
+	$(MAKE) bench$* MTESTARGS="$(MTESTARGS) --logbase bench-report$*" && ln -f meson-logs/$@ .

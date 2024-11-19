@@ -1,0 +1,22 @@
+# QEMU configure log Tue Nov 19 04:53:42 PM EST 2024
+# Configured with: '/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/configure' '--target-list=x86_64-linux-user'
+
+#
+cc -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+cc -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+config-temp/qemu-conf.c:2:2: error: #error __i386__ not defined
+    2 | #error __i386__ not defined
+      |  ^~~~~
+cc -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+cc -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+config-temp/qemu-conf.c:2:2: error: #error __ILP32__ not defined
+    2 | #error __ILP32__ not defined
+      |  ^~~~~
+cc -m64 -m64 -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+cc -m64 -c -o config-temp/qemu-conf.o config-temp/qemu-conf.c
+cc -m64 -Werror -fPIE -DPIE -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -pie
+cc -m64 -o config-temp/qemu-conf.exe config-temp/qemu-conf.c
+config-temp/qemu-conf.c:2:3: error: #error LITTLE
+    2 | # error LITTLE
+      |   ^~~~~
+cc -m64 -mcx16 -o config-temp/qemu-conf.exe config-temp/qemu-conf.c -static
