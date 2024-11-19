@@ -1,10 +1,20 @@
-# Running Your Challenge
+Pr. Rogers is kind of superstitious person. First he insisted that no one used the number 13 around him. Then he extends it to the number 7.
+Nowadays he won't work with anything that is a prime number.
 
-Place all the code needed to run your challenge in this directory, and document the required environment as described
-below:
+Can you make that program work? He build a special interpreter that won't allow any prime in the opcodes (either as hex (x13) or in dec (13 --> 0xd))
 
-- If you have included a `Dockerfile` and a `docker-compose.yml`, then that is all that should be enough (unless additional
-  explanations are needed as well).
-- If you have not, please document the steps to create a runnable instance of your challenge, as we (Anis and Hugo)
-  will refer to this when adding the `Dockerfile` and `docker-compose.yml`
-- For any clarifications, consult us (Anis and Hugo).
+
+
+
+
+# Unicorn
+`pip install unicorn`
+
+# QEMU
+```
+sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
+sudo apt-get install python3-venv
+cd qemu
+./configure --target-list=x86_64-linux-user
+make -j$(nproc)
+```
