@@ -1,7 +1,0 @@
-[options]
-docs = disabled
-plugins = true
-
-[properties]
-native_file = ['/home/hugo/athackctf2025/challenges/prime-disassembly/qemu/build/config-meson.cross']
-

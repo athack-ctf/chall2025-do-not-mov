@@ -14,6 +14,7 @@ Can you make that program work? He build a special interpreter that won't allow 
 ```
 sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
 sudo apt-get install python3-venv
+sudo apt install python3-capstone
 cd qemu
 ./configure --target-list=x86_64-linux-user
 make -j$(nproc)

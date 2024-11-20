@@ -1,5 +1,5 @@
 from __future__ import print_function
-import pefile, collections
+import collections
 from unicorn import *
 from unicorn.x86_const import *
 
@@ -8,9 +8,6 @@ from elftools.elf.elffile import ELFFile
 from io import BytesIO
 
 import struct
-
-IMAGE_FILE_MACHINE_I386 = 0x014c
-IMAGE_FILE_MACHINE_AMD64 = 0x8664
 
 """
     Usage Example: 
