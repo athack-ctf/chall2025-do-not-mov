@@ -1,17 +1,17 @@
-Pr. Rogers is kind of superstitious person.
+Dr. Dexter is kind of superstitious person.
+He really gets uncomfortable around any kind of x86-64 "mov" instruction...
 
-It all started with the number 13, but then he also started to avoid the number 7, and after his trip to Japan, he started to get nervous around 43.
-Eventually, Pr. Rogers started to get afraid of all prime numbers.
+Can you write a program for Dr. Dexter that computes the sum of any three positive integers between 0 and 100,000?
 
-Can you help him write a program that computes #TODO UPDATE?
+Make sure not to use ANY "mov" instruction anywhere, or he'll know it.
 
-Make sure not to use any prime anywhere, or he'll know it.
+...
 
-
-
-########## EXTRA INSTRUCTIONS THAT I THINK WE SHOULD PROVIDE (but maybe not) #########
+What do you mean "That's stupid, I am going home"?? Uh, fine ... you're allowed to use at most 4 "mov"!
 
 
-- The prime restriction applies to individual bytes (not the entire register).
-- Opcodes can't have any prime in them. Means, in particular, no 0x86 (mov)
-- All the rules apply to numbers in hex format and in decimal format. For instance, 0x79 (79 is prime), even though 0x79 in dec (121) is not, it will still be banned.
+########## DETAILS ##########
+- Your program will be executed inside an x86-64 Linux environment with `glibc 2.39`.
+- The expected format of the output is "`Sum: XXXXXXX`" with XXX the sum of three random positive integers passed in `argv`.
+- The "no mov" restriction applies to any instruction in the `main` function, as well as any function called by `main`, except the `printf`,  `atoi`/`atol`/`atoll` and `exit` functions of `glibc`.
+- Syscalls are restricted, except those in above-mentioned functions.

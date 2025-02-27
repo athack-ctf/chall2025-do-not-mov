@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do NOT mov</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #3a0ca3, #f4a261);
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #dcdad5;
+            text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.6);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-label {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #0015ff;
+            color: #a61567;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .upload-label:hover {
+            background: #d4d3d1;
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(255, 204, 0, 0.8);
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #3a0ca3;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(58, 12, 163, 0.5);
+        }
+
+        .submit-btn:hover {
+            background: #4b00c1;
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(58, 12, 163, 0.8);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .result.success {
+            background: rgba(34, 197, 94, 0.8); /* Green for success */
+        }
+
+        .result.error {
+            background: rgba(239, 68, 68, 0.8); /* Red for errors */
+        }
+
+        .ai-glow {
+            font-size: 14px;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload a valid x86-64 ELF</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="upload-label">Choose File</label>
+            <input type="file" id="file-upload" name="file">
+            <br>
+            <button type="submit" class="submit-btn">Upload & Test</button>
+        </form>
+
+        {% if messages.success %}
+            <p class="result success">{{ messages.success }}</p>
+        {% endif %}
+
+        {% if messages.error %}
+            <p class="result error">{{ messages.error }}</p>
+        {% endif %}
+
+        <p class="ai-glow">Do NOT mov</p>
+    </div>
+
+</body>
+</html>

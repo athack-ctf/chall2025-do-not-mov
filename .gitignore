@@ -19,3 +19,8 @@
 .history/
 # Built Visual Studio Code Extensions
 *.vsix
+
+
+source/checker/qilingenv
+source/solver/gcc
+venv/
