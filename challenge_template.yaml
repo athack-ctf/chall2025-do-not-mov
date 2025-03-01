@@ -1,0 +1,51 @@
+# Name should be "Challenge name" if only one flag, or
+# "Challenge name - 1", "Challenge name - 2", etc. if multiple ones.
+# Be careful of the spaces before and after the '-'
+name: "Do NOT mov"
+author: ""
+category: <Reverse>
+description: |
+    Dr. Dexter is kind of superstitious person.
+    He really gets uncomfortable around any kind of x86-64 "mov" instruction...
+
+    Can you write a program for Dr. Dexter that computes the sum of any three positive integers between 0 and 100,000?
+
+    Make sure not to use ANY "mov" instruction anywhere, or he'll know it.
+
+    ...
+
+    What do you mean "That's stupid, I am going home"?? Uh, fine ... you're allowed to use at most 4 "mov"!
+
+
+    ########## DETAILS ##########
+    - Your program will be executed inside an x86-64 Linux environment with `glibc 2.39`.
+    - The expected format of the output is "`Sum: XXXXXXX`" with XXX the sum of three random positive integers passed in `argv`.
+    - The "no mov" restriction applies to any instruction in the `main` function, as well as any function called by `main`, except the `printf`, `atoi`/`atol`/`atoll` and `exit` functions of `glibc`.
+    - Syscalls are restricted, except those in above-mentioned functions.
+
+
+    [Start your challenge instance](https://instancer.athackctf.com/chall2025-do-not-mov/create)
+    
+value: 0
+
+# Let's put the challenges as standard for now and we can script to change
+type: standard
+
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+flags:
+  - type: "static"
+    content: "ATHACKCTF{IDoNOTLikeToMovItMovIt}"
+    data: "case_insensitive"
+
+
+# Available: beginner, interac
+tags:
+
+# Provide paths to files from the same directory that this file is in
+files:
+
+# Put hidden by default
+state: hidden
+
+version: "0.1"
