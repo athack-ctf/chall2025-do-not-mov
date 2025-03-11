@@ -1,9 +1,6 @@
-# Name should be "Challenge name" if only one flag, or
-# "Challenge name - 1", "Challenge name - 2", etc. if multiple ones.
-# Be careful of the spaces before and after the '-'
 name: "Do NOT mov"
-author: ""
-category: <Reverse>
+author: "Hugo"
+category: RE
 description: |
     Dr. Dexter is kind of superstitious person.
     He really gets uncomfortable around any kind of x86-64 "mov" instruction...
@@ -22,30 +19,21 @@ description: |
     - The expected format of the output is "`Sum: XXXXXXX`" with XXX the sum of three random positive integers passed in `argv`.
     - The "no mov" restriction applies to any instruction in the `main` function, as well as any function called by `main`, except the `printf`, `atoi`/`atol`/`atoll` and `exit` functions of `glibc`.
     - Syscalls are restricted, except those in above-mentioned functions.
-
-
-    [Start your challenge instance](https://instancer.athackctf.com/chall2025-do-not-mov/create)
     
-value: 0
+value: 350
 
-# Let's put the challenges as standard for now and we can script to change
 type: standard
 
-
-# Flags specify answers that your challenge use. You should generally provide at least one.
 flags:
   - type: "static"
     content: "ATHACKCTF{IDoNOTLikeToMovItMovIt}"
     data: "case_insensitive"
 
-
-# Available: beginner, interac
 tags:
+ - http
 
-# Provide paths to files from the same directory that this file is in
 files:
 
-# Put hidden by default
-state: hidden
+state: visible
 
 version: "0.1"
