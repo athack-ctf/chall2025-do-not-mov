@@ -13,8 +13,7 @@ description: |
 
     What do you mean "That's stupid, I am going home"?? Uh, fine ... you're allowed to use at most 4 "mov"!
 
-
-    ########## DETAILS ##########
+    ## DETAILS
     - Your program will be executed inside an x86-64 Linux environment with `glibc 2.39`.
     - The expected format of the output is "`Sum: XXXXXXX`" with XXX the sum of three random positive integers passed in `argv`.
     - The "no mov" restriction applies to any instruction in the `main` function, as well as any function called by `main`, except the `printf`, `atoi`/`atol`/`atoll` and `exit` functions of `glibc`.
