@@ -1,30 +1,81 @@
-# Chall - Unoptimus Prime
-> In this challenge, participants must compile a program that does a certain task. However, no prime numbers should ever get in the registers (either per byte, in hex, or in dec), as well as in opcodes.
+# @HACK 2025: Do NOT mov
 
-## Type
+> Authored by [Hugo](https://github.com/hkerma).
 
-- [ ] **OFF**line
-- [X] **ON**line
+- **Category**: `RE`
+- **Value**: `350 points`
+- **Tags**: `http`
 
-## Designer(s)
+> Dr. Dexter is kind of superstitious person.
+> He really gets uncomfortable around any kind of x86-64 "mov" instruction...
+> 
+> Can you write a program for Dr. Dexter that computes the sum of any three positive integers between 0 and 100,000?
+> 
+> Make sure not to use ANY "mov" instruction anywhere, or he'll know it.
+> 
+> ...
+> 
+> What do you mean "That's stupid, I am going home"?? Uh, fine ... you're allowed to use at most 4 "mov"!
+> 
+> ## DETAILS
+> - Your program will be executed inside an x86-64 Linux environment with `glibc 2.39`.
+> - The expected format of the output is "`Sum: XXXXXXX`" with XXX the sum of three random positive integers passed in `argv`.
+> - The "no mov" restriction applies to any instruction in the `main` function, as well as any function called by `main`, except the `printf`, `atoi`/`atol`/`atoll` and `exit` functions of `glibc`.
+> - Syscalls are restricted, except those in above-mentioned functions.
+> 
 
-- Hugo Kermabon-Bobinnec
-- Anis Lounis (for helping with the idea)
+## Access a dockerized instance
 
-## Description
+Run challenge container using docker compose
+```
+docker compose up -d
+```
+Open below URL on your browser
+```
+http://localhost:52032/
+```
+<details>
+<summary>
+How to stop/restart challenge?
+</summary>
 
-The challenge deals with the binary-level skills of participants. On the x86-64 platform, program are compiled into binary executables, which contains instructions for the CPU to run.
-However, in our case, participants cannot use prime numbers in the binary code they produce. This is a very annoying constraint since the most used instruction (mov rax/eax/etc.) start with the opcode "0x89" which is prime.
-The constraint regarding other prime numbers should be less annoying, but can be lifted if needed (89 is prime both in dec, but 0x89 in dec (137) is also prime).
-Participants have to find other ways to achieve their goal than using regular mov instructions, but it also applies to the values they store in registers etc.
+To stop the challenge run
+```
+docker compose stop
+```
+To restart the challenge run
+```
+docker compose restart
+```
 
-Notes:
-0x89 is mov, 89 is prime, 137 as well (0x89 = 137)
-0x97 is prime both in hex and in dec (151)
-0x83 as well (131)
+</details>
 
 
+## Reveal Flag
 
-## Category(ies)
+Did you try solving this challenge?
+<details>
+<summary>
+Yes
+</summary>
 
-- `re`
+Did you **REALLY** try solving this challenge?
+
+<details>
+<summary>
+Yes, I promise!
+</summary>
+
+Flag: `ATHACKCTF{IDoNOTLikeToMovItMovIt}`
+
+</details>
+</details>
+
+
+---
+
+## About @HACK
+[@HACK](https://athackctf.com/) is an annual CTF (Capture The Flag) competition hosted by [HEXPLOIT ALLIANCE](https://hexploit-alliance.com/) and [TECHNATION](https://technationcanada.ca/) at Concordia University in Montreal, Canada.
+
+---
+[Check more challenges from @HACK 2025](https://github.com/athack-ctf/AtHackCTF-2025-Challenges).
