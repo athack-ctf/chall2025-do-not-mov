@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   do-not-mov:
     build: .
     image: athack-ctf/chall2025-do-not-mov:latest
     ports:
-      - "2025:5000"
+    - 52032:5000
+version: '3.8'
